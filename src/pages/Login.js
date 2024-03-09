@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 50,
     marginBottom: 10,
-    width: '80%'
+    width: '80%',
+    paddingHorizontal: 2
   },
   textoFormulario: {
     color: 'red',
