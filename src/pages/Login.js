@@ -4,29 +4,32 @@ import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'r
 export default function App() {
   return (
     <View style={styles.container}>
+
+      <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
       
-      <View style={styles.formulario}>
+        <View style={styles.formulario}>
 
-        <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
+          <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
 
-        <View style={styles.textoEInput}>
-          <TextInput style={styles.input} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
+          <View style={styles.textoEInput}>
+            <TextInput style={styles.input} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
+          </View>
+          
+          <View style={styles.textoEInput}>
+            <TextInput style={styles.input} autoComplete='password' textContentType='password' placeholder='Digite sua senha...'></TextInput>
+          </View>
+
+          <View style={styles.textoEInput}>
+            <Pressable style={styles.botao}>
+                <Text style={styles.textoFormulario}>LOGAR</Text>
+            </Pressable>
+          </View>
+
+          </ImageBackground>
+
         </View>
-        
-        <View style={styles.textoEInput}>
-          <TextInput style={styles.input} autoComplete='password' textContentType='password' placeholder='Digite sua senha...'></TextInput>
-        </View>
 
-        <View style={styles.textoEInput}>
-          <Pressable style={styles.botao}>
-              <Text style={styles.textoFormulario}>LOGAR</Text>
-          </Pressable>
-        </View>
-
-        </ImageBackground>
-
-      </View>
-
+      </ImageBackground>
       <StatusBar style="auto" />
     </View>
   );
@@ -71,8 +74,9 @@ const styles = StyleSheet.create({
   fundo: {
     width: '100%',
     height: '100%',
+    resizeMode: 'cover',
     justifyContent: 'center',
-    resizeMode: 'contain',
+    alignItems: 'center',
     flex: 1,
   },
   fundoBotao: {
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   botao: {
-    width: '50%',
+    width: 200,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
