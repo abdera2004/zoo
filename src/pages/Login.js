@@ -10,20 +10,16 @@ export default function App() {
         <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
 
         <View style={styles.textoEInput}>
-          <Text style={styles.textoFormulario}>NOME</Text>
           <TextInput style={styles.input} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
         </View>
         
         <View style={styles.textoEInput}>
-          <Text style={styles.textoFormulario}>SENHA</Text>
           <TextInput style={styles.input} autoComplete='password' textContentType='password' placeholder='Digite sua senha...'></TextInput>
         </View>
 
         <View style={styles.textoEInput}>
           <Pressable style={styles.botao}>
-            <ImageBackground source={require('../../assets/madeira.jpg')} style={styles.fundo}>              
               <Text style={styles.textoFormulario}>LOGAR</Text>
-            </ImageBackground>               
           </Pressable>
         </View>
 
@@ -55,14 +51,15 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     backgroundColor: 'white',
-    borderRadius: 10,
+    borderRadius: 50,
     height: 50,
     marginBottom: 10,
-    width: '80%',
-    paddingHorizontal: 2
+    width: 200,
+    paddingHorizontal: 2,
+    textAlign: 'center'
   },
   textoFormulario: {
-    color: 'red',
+    color: 'white',
     fontWeight: 'bold',
     alignItems: 'center',
     justifyContent: 'center'
@@ -78,6 +75,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     flex: 1,
   },
+  fundoBotao: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain',
+    flex: 1,
+  },
   textoEInput: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -87,7 +92,8 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 15,
-    overflow: 'hidden'
-  }
+    borderRadius: 50,
+    overflow: 'hidden',
+    backgroundColor: 'green'
+  },
 });
