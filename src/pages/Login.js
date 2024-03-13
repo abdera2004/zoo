@@ -30,7 +30,7 @@ export default function App() {
         </View>
 
       </ImageBackground>
-      <StatusBar style="auto" />
+
     </View>
   );
 }
