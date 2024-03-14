@@ -1,13 +1,11 @@
-import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'react-native';
 
-export default function Login({navigation}) {
+export default function Cadastro({navigation}) {
   return (
     <View style={styles.container}>
 
       <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
-
-        <Image source={require('../../assets/logo.png')} resizeMode='contain' style={{height: '15%', width: '40%'}}></Image>
-
+      
         <View style={styles.formulario}>
 
           <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
