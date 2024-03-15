@@ -1,6 +1,17 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default function Cadastro({navigation}) {
+
+  const InputWithIcon = ({ iconName, ...rest }) => {
+    return (
+      <View style={styles.textoEInput}>
+        <FontAwesome5 name={iconName} size={20} color="gray" style={{left: 30, position: 'relative'}}/>
+        <TextInput {...rest} style={styles.input} />
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
 
@@ -9,20 +20,22 @@ export default function Cadastro({navigation}) {
         <View style={styles.formulario}>
 
           <View style={styles.textoView}>
-            <Text style={styles.cadastro}>CADASTRAR</Text>
+            <Text style={styles.cadastro}>CADASTRO</Text>
           </View>
 
-          <View style={styles.textoEInput}>
-            <TextInput style={styles.input} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
-          </View>
-          
-          <View style={styles.textoEInput}>
-            <TextInput style={styles.input} autoComplete='password' textContentType='password' placeholder='Digite sua senha...'></TextInput>
-          </View>
+          <InputWithIcon iconName="user-circle" autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
 
-          <View style={styles.textoEInput}>
+          <InputWithIcon iconName="birthday-cake" placeholder='Digite sua idade...' />
+
+          <InputWithIcon iconName="envelope" autoComplete='email' textContentType='email' placeholder='Digite o seu e-mail...' />
+
+          <InputWithIcon iconName="lock" autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+
+          <InputWithIcon iconName="lock" autoComplete='password' textContentType='password' placeholder='Confirme sua senha...' />
+
+          <View style={styles.textoEInput2}>
             <Pressable style={styles.botao} onPress={() => navigation.navigate('Cadastro')}>
-                <Text style={styles.textoFormulario}>LOGAR</Text>
+                <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>
           </View>
 
@@ -49,16 +62,18 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 15,
     overflow: 'hidden',
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent:'space-evenly',
+    paddingHorizontal: 20
   },
   input: {
     borderWidth: 1,
     backgroundColor: 'white',
     borderRadius: 50,
     height: 50,
-    marginBottom: 10,
-    width: 200,
-    paddingHorizontal: 2,
-    textAlign: 'center'
+    width: '95%',
+    textAlign: 'center',
   },
   textoFormulario: {
     color: 'white',
@@ -87,27 +102,34 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textoEInput: {
-    alignItems: 'flex-start',
     justifyContent: 'center',
-    paddingLeft: 5,
+    alignItems: 'center',
+    width: '100%',
+    flexDirection: 'row',
+  },
+  textoEInput2: {
+    alignItems: 'center',
     width: '100%'
   },
   botao: {
     width: 200,
-    height: 40,
+    height: 80,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
     overflow: 'hidden',
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+
   },
   cadastro: {
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     fontSize: 40,
+    borderBottomWidth: 2
   },
   textoView: {
     width: '100%',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    paddingBottom: 5
   }
 });
