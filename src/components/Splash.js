@@ -10,7 +10,7 @@ const SplashScreen = ({ navigation }) => {
           spinValue,
           {
             toValue: 1,
-            duration: 5000,
+            duration: 2000,
             easing: Easing.linear,
             useNativeDriver: true,
           }
@@ -18,7 +18,7 @@ const SplashScreen = ({ navigation }) => {
       ).start();
       setTimeout(() => {
         navigation.navigate('Login'); // Navegar para a próxima tela após o tempo desejado
-      }, 5000); // Tempo de exibição da tela de splash
+      }, 2000); // Tempo de exibição da tela de splash
     }, []);
   
     const spin = spinValue.interpolate({

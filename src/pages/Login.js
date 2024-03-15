@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Image } from 'react-native';
+import * as Animado from 'react-native-animatable';
 
 export default function Login({navigation}) {
   return (
@@ -6,11 +7,11 @@ export default function Login({navigation}) {
 
       <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
 
-        <Image source={require('../../assets/logo.png')} resizeMode='contain' style={{height: '15%', width: '40%'}}></Image>
+        <Animado.Image animation="bounceInDown" duration={2000} source={require('../../assets/logo.png')} resizeMode='contain' style={{width: '90%', flex: 0.39}}></Animado.Image>
 
-        <View style={styles.formulario}>
+        <Animado.View animation="fadeInLeft" duration={2000} delay={1000} style={styles.formulario}>
 
-          <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
+          <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundoFormulario}>
 
           <View style={styles.textoEInput}>
             <TextInput style={styles.input} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
@@ -28,7 +29,7 @@ export default function Login({navigation}) {
 
           </ImageBackground>
 
-        </View>
+        </Animado.View>
 
       </ImageBackground>
 
@@ -44,19 +45,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formulario: {
-    flex: 0.4,
-    width: '70%',
-    flexDirection: 'column',
-    borderWidth: 2,
+    flex: 0.3,
+    width: '60%',
     marginBottom: 5,
     borderRadius: 15,
     overflow: 'hidden',
   },
   input: {
-    borderWidth: 1,
     backgroundColor: 'white',
     borderRadius: 50,
-    height: 50,
+    height: 40,
     marginBottom: 10,
     width: 200,
     paddingHorizontal: 2,
@@ -76,9 +74,18 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     flex: 1,
+  },
+  fundoFormulario: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flex: 1,
+    padding: 20
   },
   fundoBotao: {
     width: '100%',
