@@ -7,7 +7,7 @@ export default function Login({navigation}) {
 
       <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
 
-        <Animado.Image animation="bounceInDown" duration={2000} source={require('../../assets/logo.png')} resizeMode='contain' style={{width: '90%', flex: 0.39}}></Animado.Image>
+        <Animado.Image animation="bounceInDown" duration={2000} source={require('../../assets/logo zoo kids fundo transparente.png')} resizeMode='contain' style={{width: '90%', flex: 0.39}}></Animado.Image>
 
         <Animado.View animation="fadeInLeft" duration={2000} delay={1000} style={styles.formulario}>
 

@@ -8,7 +8,9 @@ export default function Cadastro({navigation}) {
       
         <View style={styles.formulario}>
 
-          <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
+          <View style={styles.textoView}>
+            <Text style={styles.cadastro}>CADASTRAR</Text>
+          </View>
 
           <View style={styles.textoEInput}>
             <TextInput style={styles.input} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
@@ -23,8 +25,6 @@ export default function Cadastro({navigation}) {
                 <Text style={styles.textoFormulario}>LOGAR</Text>
             </Pressable>
           </View>
-
-          </ImageBackground>
 
         </View>
 
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formulario: {
-    flex: 0.4,
-    width: '70%',
+    flex: 1,
+    width: '80%',
     flexDirection: 'column',
     borderWidth: 2,
-    marginBottom: 5,
+    marginVertical: 10,
     borderRadius: 15,
     overflow: 'hidden',
   },
@@ -87,8 +87,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textoEInput: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
+    paddingLeft: 5,
+    width: '100%'
   },
   botao: {
     width: 200,
@@ -99,4 +101,13 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: 'green'
   },
+  cadastro: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 40,
+  },
+  textoView: {
+    width: '100%',
+    alignItems: 'center',
+  }
 });
