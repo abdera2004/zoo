@@ -27,7 +27,7 @@ export default function Cadastro({navigation}) {
 
           <InputWithIcon iconName="birthday-cake" placeholder='Digite sua idade...' />
 
-          <InputWithIcon iconName="envelope" autoComplete='email' textContentType='email' placeholder='Digite o seu e-mail...' />
+          <InputWithIcon iconName="envelope" autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
 
           <InputWithIcon iconName="lock" autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
