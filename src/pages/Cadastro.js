@@ -6,7 +6,7 @@ export default function Cadastro({navigation}) {
   const InputWithIcon = ({ iconName, ...rest }) => {
     return (
       <View style={styles.textoEInput}>
-        <FontAwesome5 name={iconName} size={20} color="gray" style={{left: 30, position: 'relative'}}/>
+        <FontAwesome5 name={iconName} size={20} color="gray" style={{left: 10, position: 'absolute'}}/>
         <TextInput {...rest} style={styles.input} />
       </View>
     );
@@ -55,11 +55,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formulario: {
-    flex: 1,
+    flex: 0.8,
     width: '80%',
     flexDirection: 'column',
     borderWidth: 2,
-    marginVertical: 10,
     borderRadius: 15,
     overflow: 'hidden',
     backgroundColor: 'white',
@@ -69,17 +68,18 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    backgroundColor: 'white',
     borderRadius: 50,
     height: 50,
     width: '95%',
     textAlign: 'center',
+    flex: 1
   },
   textoFormulario: {
     color: 'white',
     fontWeight: 'bold',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    fontSize: 20
   },
   texto: {  
     color: 'white',

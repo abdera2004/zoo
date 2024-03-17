@@ -7,9 +7,9 @@ export default function Login({navigation}) {
 
       <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
 
-        <Animado.Image animation="bounceInDown" duration={2000} source={require('../../assets/logo zoo kids fundo transparente.png')} resizeMode='contain' style={{width: '90%', flex: 0.39}}></Animado.Image>
+        <Animado.Image animation="bounceInDown" duration={2000} delay={500} source={require('../../assets/logo zoo kids fundo transparente.png')} resizeMode='contain' style={{width: '90%', flex: 0.39}}></Animado.Image>
 
-        <Animado.View animation="fadeInLeft" duration={2000} delay={1000} style={styles.formulario}>
+        <Animado.View animation="fadeInLeft" duration={2000} delay={1500} style={styles.formulario}>
 
           <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundoFormulario}>
 
@@ -79,13 +79,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   fundoFormulario: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     flex: 1,
-    padding: 20
+    padding: 20,
+    overflow: 'hidden',
   },
   fundoBotao: {
     width: '100%',
