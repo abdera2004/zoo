@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import * as Animado from 'react-native-animatable';
 
 export default function Cadastro({navigation}) {
 
   const InputWithIcon = ({ iconName, ...rest }) => {
     return (
-      <View style={styles.textoEInput}>
+      <Animado.View style={styles.textoEInput} animation="bounceInUp" duration={2000} delay={1000}>
         <FontAwesome5 name={iconName} size={20} color="gray" style={{left: 10, position: 'absolute'}}/>
         <TextInput {...rest} style={styles.input} />
-      </View>
+      </Animado.View>
     );
   }
 
@@ -17,7 +18,7 @@ export default function Cadastro({navigation}) {
 
       <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
       
-        <View style={styles.formulario}>
+        <Animado.View animation="fadeInLeft" duration={2000} style={styles.formulario}>
 
           <View style={styles.textoView}>
             <Text style={styles.cadastro}>CADASTRO</Text>
@@ -39,7 +40,7 @@ export default function Cadastro({navigation}) {
             </Pressable>
           </View>
 
-        </View>
+        </Animado.View>
 
       </ImageBackground>
 
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     fontSize: 40,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
   },
   textoView: {
     width: '100%',
