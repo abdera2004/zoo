@@ -36,7 +36,7 @@ export default function Cadastro({navigation}) {
 
           <View style={styles.textoEInput2}>
             <Pressable style={styles.botao} onPress={() => navigation.navigate('Cadastro')}>
-                <Text style={styles.textoFormulario}>CADASTRAR</Text>
+              <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>
           </View>
 
