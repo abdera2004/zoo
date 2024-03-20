@@ -22,7 +22,7 @@ export default function Login({navigation}) {
           </View>
 
           <View style={styles.textoEInput}>
-            <Pressable style={styles.botao} onPress={() => navigation.navigate('Cadastro')}>
+            <Pressable style={styles.botao} onPress={() => navigation.navigate('Home')}>
                 <Text style={styles.textoFormulario}>LOGAR</Text>
             </Pressable>
           </View>

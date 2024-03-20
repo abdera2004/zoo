@@ -35,7 +35,7 @@ export default function Cadastro({navigation}) {
           <InputWithIcon iconName="lock" autoComplete='password' textContentType='password' placeholder='Confirme sua senha...' />
 
           <View style={styles.textoEInput2}>
-            <Pressable style={styles.botao} onPress={() => navigation.navigate('Home')}>
+            <Pressable style={styles.botao} onPress={() => navigation.navigate('Login')}>
               <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>
           </View>

@@ -16,13 +16,13 @@ const Routes = () =>{
             options={{headerShown: false}}
             />
             <Stack.Screen
-            name="Login"
-            component={Login}
+            name="Cadastro"
+            component={Cadastro}
             options={{headerShown: false}}
             />
             <Stack.Screen
-            name="Cadastro"
-            component={Cadastro}
+            name="Login"
+            component={Login}
             options={{headerShown: false}}
             />
             <Stack.Screen
