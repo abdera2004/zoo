@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Mar-2024 às 20:53
+-- Tempo de geração: 20-Mar-2024 às 21:01
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -46,7 +46,8 @@ CREATE TABLE `tbuser` (
   `idUser` int(11) NOT NULL,
   `nomeUser` varchar(100) NOT NULL,
   `emailUser` varchar(100) NOT NULL,
-  `senhaUser` varchar(20) NOT NULL
+  `senhaUser` varchar(20) NOT NULL,
+  `idadeUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
