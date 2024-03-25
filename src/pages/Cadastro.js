@@ -1,15 +1,49 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Animado from 'react-native-animatable';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useState} from 'react';
 
 export default function Cadastro({navigation}) {
 
+  const onPressButton = () => {
+    Armazenar()
+    console.log('Função 1 executada');
+    
+    navigation.navigate('Login')
+    console.log('Função 2 executada');
+  };
+
+  const [nome, setNome] = useState('')
+  const [idade, setIdade] = useState('')
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+
+  const Armazenar = async() =>{
+    AsyncStorage.setItem('nome', nome)
+    AsyncStorage.setItem('idade', idade)
+    AsyncStorage.setItem('email', email)
+    AsyncStorage.setItem('senha', senha)
+    .then(() => {
+      console.log('Dados armazenados com sucesso!'); 
+      }) 
+      .catch(error => { 
+      console.error('Erro ao armazenar dados:', error); 
+      });
+  }
+
+  const Buscar = async (key)=>{
+    const value = await AsyncStorage.getItem(key)
+    setNome(value)
+    return value
+  }
+
   const InputWithIcon = ({ iconName, ...rest }) => {
     return (
-      <Animado.View style={styles.textoEInput} animation="bounceInUp" duration={2000} delay={1000}>
+      <View style={styles.textoEInput}>
         <FontAwesome5 name={iconName} size={20} color="gray" style={{left: 10, position: 'absolute'}}/>
         <TextInput {...rest} style={styles.input} />
-      </Animado.View>
+      </View>
     );
   }
 
@@ -24,18 +58,18 @@ export default function Cadastro({navigation}) {
             <Text style={styles.cadastro}>CADASTRO</Text>
           </View>
 
-          <InputWithIcon iconName="user-circle" autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
+          <InputWithIcon onChangeText={setNome} value={nome} id='nome' iconName="user-circle" autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
 
-          <InputWithIcon iconName="birthday-cake" placeholder='Digite sua idade...' />
+          <InputWithIcon onChangeText={setIdade} value={idade} id='idade' iconName="birthday-cake" placeholder='Digite sua idade...' />
 
-          <InputWithIcon iconName="envelope" autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
+          <InputWithIcon onChangeText={setEmail} value={email} id='email' iconName="envelope" autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
 
-          <InputWithIcon iconName="lock" autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+          <InputWithIcon onChangeText={setSenha} value={senha} id='senha' iconName="lock" autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
-          <InputWithIcon iconName="lock" autoComplete='password' textContentType='password' placeholder='Confirme sua senha...' />
+          <InputWithIcon id='senha' iconName="lock" autoComplete='password' textContentType='password' placeholder='Confirme sua senha...' />
 
           <View style={styles.textoEInput2}>
-            <Pressable style={styles.botao} onPress={() => navigation.navigate('Login')}>
+            <Pressable style={styles.botao} onPress={onPressButton}>
               <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>
           </View>

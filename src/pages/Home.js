@@ -2,11 +2,11 @@ import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'r
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Animado from 'react-native-animatable';
 
-export default function Home({navigation}) {
+export default function Home({navigation}){
 
   return (
     <View style={styles.container}>
-        <Text style={styles.titulo}>Bem-vindo(a) ao Zoo Kids!</Text>
+      <Text style={styles.titulo}>Bem-vindo(a) {nome} ao Zoo Kids!</Text>
     </View>
   );
 }
