@@ -38,15 +38,6 @@ export default function Cadastro({navigation}) {
     return value
   }
 
-  const InputWithIcon = ({ iconName, ...rest }) => {
-    return (
-      <View style={styles.textoEInput}>
-        <FontAwesome5 name={iconName} size={20} color="gray" style={{left: 10, position: 'absolute'}}/>
-        <TextInput {...rest} style={styles.input} />
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
 
@@ -58,15 +49,15 @@ export default function Cadastro({navigation}) {
             <Text style={styles.cadastro}>CADASTRO</Text>
           </View>
 
-          <InputWithIcon onChangeText={setNome} value={nome} id='nome' iconName="user-circle" autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
+          <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
 
-          <InputWithIcon onChangeText={setIdade} value={idade} id='idade' iconName="birthday-cake" placeholder='Digite sua idade...' />
+          <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
 
-          <InputWithIcon onChangeText={setEmail} value={email} id='email' iconName="envelope" autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
+          <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
 
-          <InputWithIcon onChangeText={setSenha} value={senha} id='senha' iconName="lock" autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+          <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
-          <InputWithIcon id='senha' iconName="lock" autoComplete='password' textContentType='password' placeholder='Confirme sua senha...' />
+          <TextInput style={styles.input} id='senha' autoComplete='password' textContentType='password' placeholder='Confirme sua senha...' />
 
           <View style={styles.textoEInput2}>
             <Pressable style={styles.botao} onPress={onPressButton}>
@@ -107,7 +98,6 @@ const styles = StyleSheet.create({
     height: 50,
     width: '95%',
     textAlign: 'center',
-    flex: 1
   },
   textoFormulario: {
     color: 'white',
