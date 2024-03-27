@@ -1,7 +1,23 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Image } from 'react-native';
 import * as Animado from 'react-native-animatable';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useState} from 'react';
 
 export default function Login({navigation}) {
+
+  AsyncStorage.getItem('nome');
+  AsyncStorage.getItem('senha');
+
+  const Verificar = (nome, senha) =>{
+    if(nome == 'nome' && senha == 'senha'){
+      console.log('Autenticação bem-sucedida!')
+      navigation.navigate('Home')
+    }else{
+      alert('Nome ou senha incorretos!')
+    }
+  }
+
+
   return (
     <View style={styles.container}>
 
@@ -22,7 +38,7 @@ export default function Login({navigation}) {
           </View>
 
           <View style={styles.textoEInput}>
-            <Pressable style={styles.botao} onPress={() => navigation.navigate('Home')}>
+            <Pressable style={styles.botao} onPress={() => Verificar()}>
                 <Text style={styles.textoFormulario}>LOGAR</Text>
             </Pressable>
           </View>
