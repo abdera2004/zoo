@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../pages/Login';
 import Splash from '../components/Splash';
-import Cadastro from '../pages/Cadastro';
+import User from '../pages/User';
 import Home from '../pages/Home';
 
 const Stack = createNativeStackNavigator();
@@ -16,8 +16,8 @@ const Routes = () =>{
             options={{headerShown: false}}
             />
             <Stack.Screen
-            name="Cadastro"
-            component={Cadastro}
+            name="User"
+            component={User}
             options={{headerShown: false}}
             />
             <Stack.Screen

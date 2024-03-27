@@ -1,21 +1,24 @@
+//Cadastro do usuário
+
 import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useState} from 'react';
+import Axios from 'axios';
 
-export default function Cadastro({navigation}) {
+export default function User({navigation}) {
 
   const onPressButton = () => {
 
     if(nome == '' || idade == '' || email == '' || senha == ''){
       alert('Preencha os campos!');
     } else{
-      Armazenar()
-      console.log('Função 1 executada');
+      Carregar()
+      console.log('Carregar executada');
 
       navigation.navigate('Login')
-      console.log('Função 2 executada');      
+      console.log('Navegação executada');      
     }
 
   };
@@ -25,25 +28,29 @@ export default function Cadastro({navigation}) {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
 
-  const Armazenar = async() =>{
-    AsyncStorage.setItem('nome', nome)
-    AsyncStorage.setItem('idade', idade)
-    AsyncStorage.setItem('email', email)
-    AsyncStorage.setItem('senha', senha)
-    .then(() => {
-      console.log('Dados armazenados com sucesso!'); 
-      }) 
-      .catch(error => { 
-      console.error('Erro ao armazenar dados:', error); 
-      });
-  }
+  const Carregar = async () => {
+    const dadosUser = {
+      'nomeUser': nome,
+      'emailUser': email,
+      'senhaUser': senha,
+      'idadeUser': idade,
+    };
 
-  const Buscar = async (key)=>{
-    const value = await AsyncStorage.getItem(key)
-    setNome(value)
-    return value
-  }
+  const axiosConfig = {
+    headers: {
+/*         'Accept': 'application/json',
+*/        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  };    
 
+  try {
+    const response = await Axios.post('http://localhost/bdzookids/userInsert', dadosUser, axiosConfig );
+    console.log(response.data)
+  } catch (error) {
+    console.error('Erro ao criar o usuário', error );
+    return false;
+  }
+  }
   return (
     <View style={styles.container}>
 
@@ -63,8 +70,6 @@ export default function Cadastro({navigation}) {
 
           <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
-          <TextInput style={styles.input} id='senha' autoComplete='password' textContentType='password' placeholder='Confirme sua senha...' />
-
           <View style={styles.textoEInput2}>
             <Pressable style={styles.botao} onPress={onPressButton}>
               <Text style={styles.textoFormulario}>CADASTRAR</Text>
@@ -77,8 +82,7 @@ export default function Cadastro({navigation}) {
 
     </View>
   );
-}
-
+  }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -161,6 +165,6 @@ const styles = StyleSheet.create({
   textoView: {
     width: '100%',
     alignItems: 'flex-start',
-    paddingBottom: 5
-  }
+    paddingBottom: 5,
+  },
 });

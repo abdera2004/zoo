@@ -13,7 +13,7 @@ class UserController{
 
 
         // Verifica se todos os campos necessários foram enviados
-        $camposObrigatorios = ['nome', 'idade', 'email', 'senha'];
+        $camposObrigatorios = ['nome', 'email', 'senha', 'idade'];
         foreach ($camposObrigatorios as $campo) {
             if (!isset($_POST[$campo]) || empty($_POST[$campo])) {
                 // Se algum campo estiver faltando ou vazio, retorna uma resposta de erro
@@ -25,9 +25,9 @@ class UserController{
         // Cria um array com os dados do usuário
         $user = [
             'nome' => $_POST['nome'],
-            'idade' => $_POST['idade'],
-            'email' => $_POST['email'],
+            'email' => $_POST['email'],            
             'senha' => $_POST['senha'],
+            'idade' => $_POST['idade'],
         ];
     
         try {
@@ -141,7 +141,7 @@ class UserController{
         }
     
         // Verifica se todos os campos necessários foram enviados
-        $camposObrigatorios = ['nome', 'email', 'senha', 'telefone', 'cep', 'endereco', 'numero', 'bairro', 'cidade'];
+        $camposObrigatorios = ['nome', 'email', 'senha', 'idade'];
         foreach ($camposObrigatorios as $campo) {
             if (!isset($_POST[$campo]) || empty($_POST[$campo])) {
                 // Se algum campo estiver faltando ou vazio, retorna uma resposta de erro
@@ -155,9 +155,9 @@ class UserController{
         $user = [
             'id' => $_POST['id'],
             'nome' => $_POST['nome'],
-            'idade' => $_POST['idade'],
             'email' => $_POST['email'],
             'senha' => $_POST['senha'],
+            'idade' => $_POST['idade'],
         ];
     
         try {

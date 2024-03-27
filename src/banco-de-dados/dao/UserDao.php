@@ -8,12 +8,12 @@ header('Access-Control-Allow-Origin: *');
         public static function insert($user){
             $conexao = Conexao::conectar();
             // Prepara a consulta SQL
-            $query = "INSERT INTO tbuser (nome, email, senha, idade) VALUES (?,?,?,?)";
+            $query = "INSERT INTO tbuser (nomeUser, emailUser, senhaUser, idadeUser) VALUES (?,?,?,?)";
             $stmt = $conexao->prepare($query);
-            $stmt->bindValue(1, $user['nome']);
-            $stmt->bindValue(2, $user['email']);
-            $stmt->bindValue(3, $user['senha']);
-            $stmt->bindValue(4, $user['idade']);
+            $stmt->bindValue(1, $user['nomeUser']);
+            $stmt->bindValue(2, $user['emailUser']);
+            $stmt->bindValue(3, $user['senhaUser']);
+            $stmt->bindValue(4, $user['idadeUser']);
             $stmt->execute();
                     // Retornar o ID do usuário inserido
         return $conexao->lastInsertId();
