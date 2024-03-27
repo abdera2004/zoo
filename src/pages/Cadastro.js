@@ -7,11 +7,17 @@ import {useState} from 'react';
 export default function Cadastro({navigation}) {
 
   const onPressButton = () => {
-    Armazenar()
-    console.log('Função 1 executada');
-    
-    navigation.navigate('Login')
-    console.log('Função 2 executada');
+
+    if(nome == '' || idade == '' || email == '' || senha == ''){
+      alert('Preencha os campos!');
+    } else{
+      Armazenar()
+      console.log('Função 1 executada');
+
+      navigation.navigate('Login')
+      console.log('Função 2 executada');      
+    }
+
   };
 
   const [nome, setNome] = useState('')
