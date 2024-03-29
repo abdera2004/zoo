@@ -12,16 +12,34 @@ export default function User({navigation}) {
   const onPressButton = () => {
 
     if(nome == '' || idade == '' || email == '' || senha == ''){
-      alert('Preencha os campos!');
+      
+      alert('Preencha os campos!')
+
     } else{
       Carregar()
       console.log('Carregar executada');
+
+      armazenarLocalmente();
+      console.log('Dados armazenados com sucesso');
 
       navigation.navigate('Login')
       console.log('Navegação executada');      
     }
 
   };
+
+  const armazenarLocalmente = async() =>{
+    AsyncStorage.setItem('nome', nome)
+    AsyncStorage.setItem('idade', idade)
+    AsyncStorage.setItem('email', email)
+    AsyncStorage.setItem('senha', senha)
+    .then(() => {
+      console.log('Dados armazenados com sucesso!'); 
+      }) 
+      .catch(error => { 
+      console.error('Erro ao armazenar dados:', error); 
+      });
+  }
 
   const [nome, setNome] = useState('')
   const [idade, setIdade] = useState('')
@@ -39,9 +57,9 @@ export default function User({navigation}) {
   const axiosConfig = {
     headers: {
 /*         'Accept': 'application/json',
-*/        'Content-Type': 'application/x-www-form-urlencoded'
+*/         'Content-Type': 'application/x-www-form-urlencoded'
     }
-  };    
+  };
 
   try {
     const response = await Axios.post('http://localhost/bdzookids/userInsert', dadosUser, axiosConfig );
@@ -81,6 +99,7 @@ export default function User({navigation}) {
       </ImageBackground>
 
     </View>
+
   );
   }
 const styles = StyleSheet.create({
@@ -167,4 +186,17 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     paddingBottom: 5,
   },
+  fundoModal: {
+    flex: 1,
+    backgroundColor: '#00000090',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalPrincipal: {
+    height: '30%',
+    width: '70%',
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
