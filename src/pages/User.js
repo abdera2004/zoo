@@ -1,6 +1,6 @@
 //Cadastro do usuário
 
-import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Alert } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,7 +13,9 @@ export default function User({navigation}) {
 
     if(nome == '' || idade == '' || email == '' || senha == ''){
       
-      alert('Preencha os campos!')
+      Alert.alert('Erro!', 'Preencha os campos!', [
+        {text: 'Entendido'}
+      ])
 
     } else{
       Carregar()

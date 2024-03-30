@@ -1,22 +1,33 @@
-import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Image, Alert } from 'react-native';
 import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useState} from 'react';
 
 export default function Login({navigation}) {
 
-  AsyncStorage.getItem('nome');
-  AsyncStorage.getItem('senha');
+  const [nome, setNome] = useState('');
+  const [senha, setSenha] = useState('');
 
-  const Verificar = (nome, senha) =>{
-    if(nome == 'nome' && senha == 'senha'){
-      console.log('Autenticação bem-sucedida!')
-      navigation.navigate('Home')
-    }else{
-      alert('Nome ou senha incorretos!')
+  const Verificar = async() =>{
+    try {
+
+      const pegarNome = await AsyncStorage.getItem('nome');
+      const pegarSenha = await AsyncStorage.getItem('senha');
+      
+            // Verificar se os dados de entrada correspondem aos dados armazenados
+            if (nome === pegarNome && senha === pegarSenha) {
+              // Login bem-sucedido
+              Alert.alert('Login bem sucedido', 'Bem vindo de volta');
+              navigation.navigate('Home');
+              // Aqui você pode redirecionar o usuário para a tela principal ou executar outras ações após o login
+            } else {
+              // Credenciais incorretas
+              Alert.alert('Informações inválidas', 'Nome ou senha incorretos');
+            }
+          } catch (error) {
+            console.error('Error retrieving data from AsyncStorage:', error);
+          }
     }
-  }
-
 
   return (
     <View style={styles.container}>
@@ -30,15 +41,15 @@ export default function Login({navigation}) {
           <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundoFormulario}>
 
           <View style={styles.textoEInput}>
-            <TextInput style={styles.input} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
+            <TextInput style={styles.input} value={nome} onChangeText={setNome} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
           </View>
           
           <View style={styles.textoEInput}>
-            <TextInput style={styles.input} autoComplete='password' textContentType='password' placeholder='Digite sua senha...'></TextInput>
+            <TextInput style={styles.input} value={senha} onChangeText={setSenha} autoComplete='password' textContentType='password' placeholder='Digite sua senha...'></TextInput>
           </View>
 
           <View style={styles.textoEInput}>
-            <Pressable style={styles.botao} onPress={() => Verificar()}>
+            <Pressable style={styles.botao} onPress={Verificar}>
                 <Text style={styles.textoFormulario}>LOGAR</Text>
             </Pressable>
           </View>
