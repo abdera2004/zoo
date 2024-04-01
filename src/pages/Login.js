@@ -32,7 +32,7 @@ export default function Login({navigation}) {
   return (
     <View style={styles.container}>
 
-      <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
+      <ImageBackground source={require('../../assets/fundo-app-zoo-kids.png')} style={styles.fundo}>
 
         <Animado.Image animation="bounceInDown" duration={2000} delay={500} source={require('../../assets/logo zoo kids fundo transparente.png')} resizeMode='contain' style={{width: '90%', flex: 0.39}}></Animado.Image>
 

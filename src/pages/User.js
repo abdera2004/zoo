@@ -116,13 +116,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formulario: {
-    flex: 0.8,
+    flex: 0.5,
     width: '80%',
     flexDirection: 'column',
     borderWidth: 2,
     borderRadius: 15,
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: '#858363',
     alignItems: 'center',
     justifyContent:'space-evenly',
     paddingHorizontal: 20
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: '95%',
     textAlign: 'center',
+    backgroundColor: 'white'
   },
   textoFormulario: {
     color: 'white',
@@ -178,14 +179,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50,
     overflow: 'hidden',
-    backgroundColor: 'green',
+    backgroundColor: '#669900',
 
   },
   cadastro: {
     fontWeight: 'bold',
-    color: 'black',
+    color: 'white',
     fontSize: 40,
     borderBottomWidth: 2,
+    borderColor: 'white'
   },
   textoView: {
     width: '100%',
