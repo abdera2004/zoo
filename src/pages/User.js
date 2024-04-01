@@ -74,7 +74,7 @@ export default function User({navigation}) {
   return (
     <View style={styles.container}>
 
-      <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
+      <ImageBackground source={require('../../assets/fundo-app-zoo-kids.png')} style={styles.fundo}>
       
         <Animado.View animation="fadeInLeft" duration={2000} style={styles.formulario}>
 

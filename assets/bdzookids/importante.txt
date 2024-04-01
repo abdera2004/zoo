@@ -1,0 +1,3 @@
+Para testar api: Usar o Postman, ir em POST e depois em Body, e selecionar a opção x-www-form-urlencoded e preencher os dados.
+
+A APi deve estar dentro do XAMPP para funcionar.
