@@ -9,14 +9,18 @@ import Axios from 'axios';
 
 export default function User({navigation}) {
 
+  //Constante feita para executar várias funções ao mesmo tempo.
   const onPressButton = () => {
 
+    //Se os campos estiverem vazios, o botão "cadastrar" não irá fazer nada.
     if(nome == '' || idade == '' || email == '' || senha == ''){
       
       Alert.alert('Erro!', 'Preencha os campos!', [
         {text: 'Entendido'}
-      ])
+      ]);
+      console.log('Os campos devem ser preenchidos');
 
+      //Caso contrário, ele vai enviar as informações dos campos para o banco de dados, armazenar localmente e navegar para a página de login.
     } else{
       Carregar()
       console.log('Carregar executada');
