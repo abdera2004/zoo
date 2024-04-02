@@ -12,25 +12,25 @@ export default function ListaTerritorios({navigation}) {
         {
             id: '2',
             title: 'Território 2',
-            imagem: '',
+            imagem: require('../../assets/Território 2.png'),
             navegar: console.log('Teste 2'),
         },
         {
             id: '3',
             title: 'Território 3',
-            imagem: '',
+            imagem: require('../../assets/Território 3.png'),
             navegar: '',
         },
         {
             id: '4',
             title: 'Território 4',
-            imagem: '',
+            imagem: require('../../assets/Território 4.png'),
             navegar: '',
         },
         {
             id: '5',
             title: 'Território 5',
-            imagem: '',
+            imagem: require('../../assets/Território 5.png'),
             navegar: '',
         },
         {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         marginHorizontal: 16,
         width: 300,
-        height: 100,
+        height: 120,
         borderWidth: 2,
         borderColor: 'grey'
     },
