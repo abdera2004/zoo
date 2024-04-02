@@ -5,29 +5,29 @@ import {useState} from 'react';
 
 export default function Login({navigation}) {
 
-  const [nome, setNome] = useState('');
-  const [senha, setSenha] = useState('');
+  // const [nome, setNome] = useState('');
+  // const [senha, setSenha] = useState('');
 
-  const Verificar = async() =>{
-    try {
+  // const Verificar = async() =>{
+  //   try {
 
-      const pegarNome = await AsyncStorage.getItem('nome');
-      const pegarSenha = await AsyncStorage.getItem('senha');
+  //     const pegarNome = await AsyncStorage.getItem('nome');
+  //     const pegarSenha = await AsyncStorage.getItem('senha');
       
-            // Verificar se os dados de entrada correspondem aos dados armazenados
-            if (nome === pegarNome && senha === pegarSenha) {
-              // Login bem-sucedido
-              Alert.alert('Login bem sucedido', 'Bem vindo de volta');
-              navigation.navigate('Home');
-              // Aqui você pode redirecionar o usuário para a tela principal ou executar outras ações após o login
-            } else {
-              // Credenciais incorretas
-              Alert.alert('Informações inválidas', 'Nome ou senha incorretos');
-            }
-          } catch (error) {
-            console.error('Error retrieving data from AsyncStorage:', error);
-          }
-    }
+  //           // Verificar se os dados de entrada correspondem aos dados armazenados
+  //           if (nome === pegarNome && senha === pegarSenha) {
+  //             // Login bem-sucedido
+  //             Alert.alert('Login bem sucedido', 'Bem vindo de volta');
+  //             navigation.navigate('Home');
+  //             // Aqui você pode redirecionar o usuário para a tela principal ou executar outras ações após o login
+  //           } else {
+  //             // Credenciais incorretas
+  //             Alert.alert('Informações inválidas', 'Nome ou senha incorretos');
+  //           }
+  //         } catch (error) {
+  //           console.error('Error retrieving data from AsyncStorage:', error);
+  //         }
+  //   }
 
   return (
     <View style={styles.container}>

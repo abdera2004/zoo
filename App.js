@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes/Routes';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar style='auto' backgroundColor='#00000030' barStyle='light-content'></StatusBar>
-      <Routes/>
+      <SafeAreaView style={{flex: 1}}>
+        <StatusBar style='auto' backgroundColor='green' barStyle='light-content'/>
+        <Routes/>
+      </SafeAreaView>
     </NavigationContainer>
   );
 };
