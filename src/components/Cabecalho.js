@@ -6,13 +6,11 @@ export default function Cabecalho({titulo}) {
     return(
         
         <View style={styles.container}>
-            
-                <Pressable style={styles.botao}>
-                    <FontAwesome5 name='arrow-left' size={30} color={'grey'}/>
-                </Pressable>
+            <Pressable style={styles.botao}>
+                 <FontAwesome5 name='arrow-left' size={30} color={'#858363'}/>
+            </Pressable>
 
-                <Text style={styles.texto}>{titulo}</Text>
-         
+            <Text style={styles.texto}>{titulo}</Text>
         </View>
     );
 }
@@ -27,19 +25,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 10
     },
-    fundo: {
-        width: '100%',
-        height: '100%',
-        resizeMode: 'cover',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-      },
-      texto: {
+    texto: {
         fontSize: 32,
-        fontWeight: 'bold'
-      },
-      botao: {
+        fontWeight: 'bold',
+        color: '#858363'
+    },
+    botao: {
         marginRight: 10
-      }
+    }
 })

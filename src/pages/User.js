@@ -9,72 +9,72 @@ import Axios from 'axios';
 
 export default function User({navigation}) {
 
-//   //Constante feita para executar várias funções ao mesmo tempo.
-//   const onPressButton = () => {
+  //Constante feita para executar várias funções ao mesmo tempo.
+   const onPressButton = () => {
 
-//     //Se os campos estiverem vazios, o botão "cadastrar" não irá fazer nada.
-//     if(nome == '' || idade == '' || email == '' || senha == ''){
+    //Se os campos estiverem vazios, o botão "cadastrar" não irá fazer nada.
+     if(nome == '' || idade == '' || email == '' || senha == ''){
       
-//       Alert.alert('Erro!', 'Preencha os campos!', [
-//         {text: 'Entendido'}
-//       ]);
-//       console.log('Os campos devem ser preenchidos');
+       Alert.alert('Erro!', 'Preencha os campos!', [
+         {text: 'Entendido'}
+       ]);
+       console.log('Os campos devem ser preenchidos');
 
-//       //Caso contrário, ele vai enviar as informações dos campos para o banco de dados, armazenar localmente e navegar para a página de login.
-//     } else{
-//       Carregar()
-//       console.log('Carregar executada');
+       //Caso contrário, ele vai enviar as informações dos campos para o banco de dados, armazenar localmente e navegar para a página de login.
+     } else{
+       Carregar()
+       console.log('Carregar executada');
 
-//       armazenarLocalmente();
-//       console.log('Dados armazenados com sucesso');
+       armazenarLocalmente();
+       console.log('Dados armazenados com sucesso');
 
-//       navigation.navigate('Login')
-//       console.log('Navegação executada');      
-//     }
+       navigation.navigate('Perfil')
+       console.log('Navegação executada');      
+     }
 
-//   };
+   };
 
-//   const armazenarLocalmente = async() =>{
-//     AsyncStorage.setItem('nome', nome)
-//     AsyncStorage.setItem('idade', idade)
-//     AsyncStorage.setItem('email', email)
-//     AsyncStorage.setItem('senha', senha)
-//     .then(() => {
-//       console.log('Dados armazenados com sucesso!'); 
-//       }) 
-//       .catch(error => { 
-//       console.error('Erro ao armazenar dados:', error); 
-//       });
-//   }
+   const armazenarLocalmente = async() =>{
+     AsyncStorage.setItem('nome', nome)
+     AsyncStorage.setItem('idade', idade)
+     AsyncStorage.setItem('email', email)
+     AsyncStorage.setItem('senha', senha)
+     .then(() => {
+       console.log('Dados armazenados com sucesso!'); 
+       }) 
+       .catch(error => { 
+       console.error('Erro ao armazenar dados:', error); 
+       });
+   }
 
-//   const [nome, setNome] = useState('')
-//   const [idade, setIdade] = useState('')
-//   const [email, setEmail] = useState('')
-//   const [senha, setSenha] = useState('')
+   const [nome, setNome] = useState('')
+   const [idade, setIdade] = useState('')
+   const [email, setEmail] = useState('')
+   const [senha, setSenha] = useState('')
 
-//   const Carregar = async () => {
-//     const dadosUser = {
-//       'nomeUser': nome,
-//       'emailUser': email,
-//       'senhaUser': senha,
-//       'idadeUser': idade,
-//     };
+   const Carregar = async () => {
+     const dadosUser = {
+       'nomeUser': nome,
+       'emailUser': email,
+       'senhaUser': senha,
+       'idadeUser': idade,
+     };
 
-//   const axiosConfig = {
-//     headers: {
-// /*         'Accept': 'application/json',
-// */         'Content-Type': 'application/x-www-form-urlencoded'
-//     }
-//   };
+   const axiosConfig = {
+     headers: {
+ /*         'Accept': 'application/json',
+ */         'Content-Type': 'application/x-www-form-urlencoded'
+     }
+   };
 
-//   try {
-//     const response = await Axios.post('http://localhost/bdzookids/userInsert', dadosUser, axiosConfig );
-//     console.log(response.data)
-//   } catch (error) {
-//     console.error('Erro ao criar o usuário', error );
-//     return false;
-//   }
-//   }
+   try {
+     const response = await Axios.post('http:localhost/bdzookids/userInsert', dadosUser, axiosConfig );
+     console.log(response.data)
+   } catch (error) {
+     console.error('Erro ao criar o usuário', error );
+     return false;
+   }
+   }
   return (
     <View style={styles.container}>
 
@@ -86,16 +86,16 @@ export default function User({navigation}) {
             <Text style={styles.cadastro}>CADASTRO</Text>
           </View>
 
-          <TextInput style={styles.input} /*onChangeText={setNome} value={nome}*/ id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
+          <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
 
-          <TextInput style={styles.input} /*onChangeText={setIdade} value={idade}*/ id='idade' placeholder='Digite sua idade...' />
+          <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
 
-          <TextInput style={styles.input} /*onChangeText={setEmail} value={email}*/ id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
+          <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
 
-          <TextInput style={styles.input} /*onChangeText={setSenha} value={senha}*/ id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+          <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
           <View style={styles.textoEInput2}>
-            <Pressable style={styles.botao} onPress={() => navigation.navigate('Perfil')}>
+            <Pressable style={styles.botao} onPress={() => onPressButton()}>
               <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>
           </View>
