@@ -1,7 +1,7 @@
-import {View, Image, ImageBackground, StyleSheet, Pressable, } from 'react-native';
+import {View, Image, StyleSheet, Pressable, } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export default function Navegacao() {
+export default function Navegacao({navigation}) {
 
     return(
         
@@ -10,6 +10,7 @@ export default function Navegacao() {
             <Pressable>
                 <FontAwesome5 name='home' size={40}/>
             </Pressable>
+
             <Pressable>
                 <Image
                     source={require('../../assets/logo zoo kids apenas texto fundo transparente.png')}
@@ -18,7 +19,7 @@ export default function Navegacao() {
                 />
             </Pressable>
 
-            <Pressable>
+            <Pressable onPress={() => navigation.navigate('Perfil')}>
                 <FontAwesome5 name='user-alt' size={40}/>
             </Pressable>
         </View>

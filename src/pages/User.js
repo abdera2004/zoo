@@ -95,7 +95,7 @@ export default function User({navigation}) {
           <TextInput style={styles.input} /*onChangeText={setSenha} value={senha}*/ id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
           <View style={styles.textoEInput2}>
-            <Pressable style={styles.botao} onPress={() => navigation.navigate('Home')}>
+            <Pressable style={styles.botao} onPress={() => navigation.navigate('Perfil')}>
               <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>
           </View>

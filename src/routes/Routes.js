@@ -3,6 +3,8 @@ import Login from '../pages/Login';
 import Splash from '../components/Splash';
 import User from '../pages/User';
 import Home from '../pages/Home';
+import Perfil from '../pages/Perfil';
+import Navegacao from '../components/Navegacao';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +30,16 @@ const Routes = () =>{
             <Stack.Screen
             name="Home"
             component={Home}
+            options={{headerShown: false}}
+            />
+            <Stack.Screen
+            name="Perfil"
+            component={Perfil}
+            options={{headerShown: false}}
+            />
+            <Stack.Screen
+            name="Navegacao"
+            component={Navegacao}
             options={{headerShown: false}}
             />
         </Stack.Navigator>
