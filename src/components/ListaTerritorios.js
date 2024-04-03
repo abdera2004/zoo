@@ -36,7 +36,7 @@ export default function ListaTerritorios({navigation}) {
         {
             id: '6',
             title: 'Território 6',
-            imagem: '',
+            imagem: require('../../assets/Território 6.png'),
             navegar: '',
         },
       ];
@@ -59,14 +59,17 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         marginHorizontal: 16,
         width: 300,
-        height: 120,
-        borderWidth: 2,
-        borderColor: 'grey'
+        height: 110,
+        borderRadius: 10,
+        overflow: 'hidden',
+        borderWidth: 1,
+        borderColor: '#604502'
     },
     texto: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'white'
+        color: '#f8cd23',
+        fontFamily: ''
     },
     fundo: {
         width: '100%',

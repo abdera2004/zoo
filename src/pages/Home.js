@@ -9,11 +9,12 @@ export default function Home({navigation}){
   return (
     <View style={styles.container}>
      
-      <ImageBackground source={require('../../assets/madeira.jpg')} style={styles.fundo}>
+      <ImageBackground source={require('../../assets/fundo formulario zoo kids.png')} style={styles.fundo}>
 
         <Lp/>
 
       </ImageBackground>
+      <Navbar/>
     </View>
   );
 }
