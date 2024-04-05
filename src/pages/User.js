@@ -6,6 +6,7 @@ import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useState} from 'react';
 import Axios from 'axios';
+import Carregamento from '../components/Carregamento';
 
 export default function User({navigation}) {
 
@@ -19,7 +20,6 @@ export default function User({navigation}) {
          {text: 'Entendido'}
        ]);
        console.log('Os campos devem ser preenchidos');
-
        //Caso contrário, ele vai enviar as informações dos campos para o banco de dados, armazenar localmente e navegar para a página de login.
      } else{
        Carregar()
@@ -27,8 +27,8 @@ export default function User({navigation}) {
 
        armazenarLocalmente();
        console.log('Dados armazenados com sucesso');
-
-       navigation.navigate('Perfil')
+        
+       setVisible(true);
        console.log('Navegação executada');      
      }
 
@@ -75,6 +75,9 @@ export default function User({navigation}) {
      return false;
    }
    }
+
+  const [visible, setVisible] = useState(false);
+
   return (
     <View style={styles.container}>
 
@@ -95,6 +98,7 @@ export default function User({navigation}) {
           <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
           <View style={styles.textoEInput2}>
+            <Carregamento navegar={'Login'} visible={visible}/>
             <Pressable style={styles.botao} onPress={() => onPressButton()}>
               <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>

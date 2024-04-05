@@ -19,7 +19,7 @@ export default function Navegacao({navigation}) {
                 />
             </Pressable>
 
-            <Pressable onPress={() => navigation.navigate('Perfil')}>
+            <Pressable onPress={() => navigation.navigate('src/pages/Perfil.js')}>
                 <FontAwesome5 name='user-alt' size={40}/>
             </Pressable>
         </View>

@@ -8,26 +8,29 @@ export default function Login({navigation}) {
    const [nome, setNome] = useState('');
    const [senha, setSenha] = useState('');
 
-   const Verificar = async() =>{
-     try {
+   const Login = async () => {
+    try {
+      // Recupera os dados do usuário do AsyncStorage
+      const storedUsername = await AsyncStorage.getItem('nome');
+      const storedPassword = await AsyncStorage.getItem('senha');
 
-       const pegarNome = await AsyncStorage.getItem('nome');
-       const pegarSenha = await AsyncStorage.getItem('senha');
-      
-       //Verificar se os dados de entrada correspondem aos dados armazenados
-             if (nome === pegarNome && senha === pegarSenha) {
-              //Login bem-sucedido
-               Alert.alert('Login bem sucedido', 'Bem vindo de volta');
-               navigation.navigate('Home');
-               //Aqui você pode redirecionar o usuário para a tela principal ou executar outras ações após o login
-             } else {
-              //Credenciais incorretas
-               Alert.alert('Informações inválidas', 'Nome ou senha incorretos');
-             }
-           } catch (error) {
-             console.error('Error retrieving data from AsyncStorage:', error);
-           }
-     }
+      // Verifica se o nome de usuário e senha correspondem aos armazenados no AsyncStorage
+      if (nome === storedUsername && senha === storedPassword) {
+        // Login bem-sucedido, você pode navegar para a próxima tela ou executar a lógica apropriada
+        Alert.alert('Login bem-sucedido');
+        console.log('Login bem-sucedido');
+        navigation.navigate('Home');
+      } else {
+        // Caso contrário, exibe uma mensagem de erro
+        Alert.alert('Erro!', 'Informações inválidas', [
+          {text: 'Entendido'}
+        ]);
+      }
+    } catch (error) {
+      // Trata erros de AsyncStorage
+      console.error('Erro ao recuperar os dados do AsyncStorage:', error);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -49,7 +52,7 @@ export default function Login({navigation}) {
           </View>
 
           <View style={styles.textoEInput}>
-            <Pressable style={styles.botao} onPress={Verificar}>
+            <Pressable style={styles.botao} onPress={Login}>
                 <Text style={styles.textoFormulario}>LOGAR</Text>
             </Pressable>
           </View>

@@ -6,72 +6,70 @@ import { useEffect } from 'react';
 
 export default function Perfil({navigation}) {
 
-  const Carregar = () => {
+  // const Carregar = () => {
 
-    console.log('Recuperando dados');
+  //   console.log('Recuperando dados');
 
-    const resgateNome = async() => {
-      AsyncStorage.getItem('nome');  
-      .then(value => { 
-      if (value !== null) { 
-      console.log('Valor recuperado:', value); 
-      } else { 
-      console.log('Nenhum valor encontrado para a chave especificada'); 
-      } 
-      }) 
-      .catch(error => { 
-      console.error('Erro ao recuperar dados:', error); 
-      }); 
-    };
+  //   const resgateNome = async() => {
+  //     AsyncStorage.getItem('nome');  
+  //     .then(value => { 
+  //     if (value !== null) { 
+  //     console.log('Valor recuperado:', value); 
+  //     } else { 
+  //     console.log('Nenhum valor encontrado para a chave especificada'); 
+  //     } 
+  //     }) 
+  //     .catch(error => { 
+  //     console.error('Erro ao recuperar dados:', error); 
+  //     }); 
+  //   };
 
-    const resgateIdade = async() => {
-      AsyncStorage.getItem('idade');  
-      .then(value => { 
-      if (value !== null) { 
-      console.log('Valor recuperado:', value); 
-      } else { 
-      console.log('Nenhum valor encontrado para a chave especificada'); 
-      } 
-      }) 
-      .catch(error => { 
-      console.error('Erro ao recuperar dados:', error); 
-      }); 
-    };
+  //   const resgateIdade = async() => {
+  //     AsyncStorage.getItem('idade');  
+  //     .then(value => { 
+  //     if (value !== null) { 
+  //     console.log('Valor recuperado:', value); 
+  //     } else { 
+  //     console.log('Nenhum valor encontrado para a chave especificada'); 
+  //     } 
+  //     }) 
+  //     .catch(error => { 
+  //     console.error('Erro ao recuperar dados:', error); 
+  //     }); 
+  //   };
 
-    const resgateEmail = async() => {
-      AsyncStorage.getItem('email');  
-      .then(value => { 
-      if (value !== null) { 
-      console.log('Valor recuperado:', value); 
-      } else { 
-      console.log('Nenhum valor encontrado para a chave especificada'); 
-      } 
-      }) 
-      .catch(error => { 
-      console.error('Erro ao recuperar dados:', error); 
-      }); 
-    };
+  //   const resgateEmail = async() => {
+  //     AsyncStorage.getItem('email');  
+  //     .then(value => { 
+  //     if (value !== null) { 
+  //     console.log('Valor recuperado:', value); 
+  //     } else { 
+  //     console.log('Nenhum valor encontrado para a chave especificada'); 
+  //     } 
+  //     }) 
+  //     .catch(error => { 
+  //     console.error('Erro ao recuperar dados:', error); 
+  //     }); 
+  //   };
 
-    const resgateSenha = async() => {
-      AsyncStorage.getItem('senha');  
-      .then(value => { 
-      if (value !== null) { 
-      console.log('Valor recuperado:', value); 
-      } else { 
-      console.log('Nenhum valor encontrado para a chave especificada'); 
-      } 
-      }) 
-      .catch(error => { 
-      console.error('Erro ao recuperar dados:', error); 
-      }); 
-    };
+  //   const resgateSenha = async() => {
+  //     AsyncStorage.getItem('senha');  
+  //     .then(value => { 
+  //     if (value !== null) { 
+  //     console.log('Valor recuperado:', value); 
+  //     } else { 
+  //     console.log('Nenhum valor encontrado para a chave especificada'); 
+  //     } 
+  //     }) 
+  //     .catch(error => { 
+  //     console.error('Erro ao recuperar dados:', error); 
+  //     }); 
+  //   };
 
-};
-
-  useEffect(() => {
+  // useEffect(() => {
     
-    Carregar();
-  }, []);
+  //   Carregar();
+  // }, []);
 
   return (
     <View style={styles.container}>
