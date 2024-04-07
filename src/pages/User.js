@@ -120,6 +120,12 @@ export default function User({navigation}) {
 
         </Animado.View>
 
+        <View style={styles.login}>
+          <Pressable>
+            <Text>JÁ POSSUI UMA CONTA? FAÇA LOGIN</Text>
+          </Pressable>
+        </View>
+
       </ImageBackground>
 
     </View>
@@ -188,7 +194,7 @@ const styles = StyleSheet.create({
   textoView: {
     width: '100%',
     alignItems: 'flex-start',
-    flex: 2,
+    flex: 1,
   },
   icone: {
     padding: 10,
