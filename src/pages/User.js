@@ -6,7 +6,6 @@ import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useState} from 'react';
 import Axios from 'axios';
-import Carregamento from '../components/Carregamento';
 
 export default function User({navigation}) {
 
@@ -26,9 +25,8 @@ export default function User({navigation}) {
        console.log('Carregar executada');
 
        armazenarLocalmente();
-       console.log('Dados armazenados com sucesso');
-        
-       setVisible(true);
+      
+       navigation.navigate('Login');
        console.log('Navegação executada');      
      }
 
@@ -68,15 +66,13 @@ export default function User({navigation}) {
    };
 
    try {
-     const response = await Axios.post('http:localhost/bdzookids/userInsert', dadosUser, axiosConfig );
+     const response = await Axios.post('http://localhost/bdzookids/userInsert', dadosUser, axiosConfig );
      console.log(response.data)
    } catch (error) {
      console.error('Erro ao criar o usuário', error );
      return false;
    }
    }
-
-  const [visible, setVisible] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -98,8 +94,7 @@ export default function User({navigation}) {
           <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
 
           <View style={styles.textoEInput2}>
-            <Carregamento navegar={'Login'} visible={visible}/>
-            <Pressable style={styles.botao} onPress={() => onPressButton()}>
+            <Pressable style={styles.botao} onPress={onPressButton}>
               <Text style={styles.textoFormulario}>CADASTRAR</Text>
             </Pressable>
           </View>
@@ -137,14 +132,16 @@ const styles = StyleSheet.create({
     height: 50,
     width: '95%',
     textAlign: 'center',
-    borderColor: '#604502'
+    borderColor: '#604502',
+    fontFamily: 'Comic Sans MS'
   },
   textoFormulario: {
     color: 'white',
     fontWeight: 'bold',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: 'Comic Sans MS'
   },
   texto: {  
     color: 'white',
@@ -191,6 +188,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 40,
     borderBottomWidth: 2,
+    fontFamily: 'Comic Sans MS'
   },
   textoView: {
     width: '100%',
