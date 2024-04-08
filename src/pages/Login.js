@@ -17,7 +17,6 @@ export default function Login({navigation}) {
       // Verifica se o nome de usuário e senha correspondem aos armazenados no AsyncStorage
       if (nome === storedUsername && senha === storedPassword) {
         // Login bem-sucedido, você pode navegar para a próxima tela ou executar a lógica apropriada
-        Alert.alert('Login bem-sucedido');
         console.log('Login bem-sucedido');
         navigation.navigate('Home');
       } else {
@@ -53,7 +52,11 @@ export default function Login({navigation}) {
 
           <View style={styles.textoEInput}>
             <Pressable style={styles.botao} onPress={Login}>
-                <Text style={styles.textoFormulario}>LOGAR</Text>
+                <Image
+                source={require('../../assets/botoes/botao logar transparente.png')}
+                resizeMode='cover'
+                style={styles.imagemBotao}
+                />
             </Pressable>
           </View>
 
@@ -75,17 +78,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formulario: {
-    flex: 0.3,
-    width: '60%',
+    flex: 0.4,
+    width: '70%',
     marginBottom: 5,
     borderRadius: 15,
     overflow: 'hidden',
+    borderWidth: 1
   },
   input: {
     backgroundColor: 'white',
     borderRadius: 50,
-    height: 40,
-    marginBottom: 10,
+    height: 55,
     width: 200,
     paddingHorizontal: 2,
     textAlign: 'center'
@@ -127,14 +130,15 @@ const styles = StyleSheet.create({
   textoEInput: {
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
+    paddingTop: 5
   },
   botao: {
-    width: 200,
-    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
-    overflow: 'hidden',
-    backgroundColor: 'green'
   },
+  imagemBotao: {
+    width: 150,
+    height: 80,
+  }
 });

@@ -81,48 +81,45 @@ export default function User({navigation}) {
       
         <Animado.View animation="fadeInLeft" duration={2000} style={styles.formulario}>
 
-          <ImageBackground source={require('../../assets/fundo/fundo-formulario-cadastro.png')} style={styles.fundoFormulario}>
-
             <View style={styles.textoView}>
               <Text style={styles.cadastro}>CADASTRO</Text>
             </View>
 
-            <View style={styles.section}>
-              <FontAwesome5 name="user-circle" size={25} color="black" style={styles.icone}/>
-              <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
-            </View>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="user-circle" size={25} color="white" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
+              </View>
 
-            <View style={styles.section}>
-              <FontAwesome5 name="birthday-cake" size={25} color="black" style={styles.icone}/>
-              <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
-            </View>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="birthday-cake" size={25} color="white" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
+              </View>
 
-            <View style={styles.section}>
-              <FontAwesome5 name="envelope" size={25} color="black" style={styles.icone}/>
-            <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
-            </View>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="envelope" size={25} color="white" style={styles.icone}/>
+              <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
+              </View>
 
-            <View style={styles.section}>
-              <FontAwesome5 name="lock" size={25} color="black" style={styles.icone}/>
-            <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
-            </View>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="lock" size={25} color="white" style={styles.icone}/>
+              <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+              </View>
 
-            <View style={styles.textoEInput2}>
-              <Pressable onPress={onPressButton}>
-                <Image
-                  source={require('../../assets/botoes/placa cadastrar.png')}
-                  style={styles.botao}
-                />
-              </Pressable>
-            </View>
-
-          </ImageBackground>
+              <View style={styles.textoEInput2}>
+                <Pressable onPress={onPressButton}>
+                  <Image
+                    source={require('../../assets/botoes/botao cadastrar.png')}
+                    style={styles.botao}
+                    resizeMode='cover'
+                  />
+                </Pressable>
+              </View>
 
         </Animado.View>
 
         <View style={styles.login}>
-          <Pressable>
-            <Text>JÁ POSSUI UMA CONTA? FAÇA LOGIN</Text>
+          <Pressable onPress={() => navigation.navigate('Login')}>
+            <Text style={{color: 'yellow'}}>JÁ POSSUI UMA CONTA? FAÇA LOGIN</Text>
           </Pressable>
         </View>
 
@@ -140,13 +137,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formulario: {
-    flex: 0.6,
-    width: 220,
+    flex: 0.5,
+    width: "70%",
     flexDirection: 'column',
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 15,
     overflow: 'hidden',
-    backgroundColor: '#f8cd23',
+    backgroundColor: '#333333',
     alignItems: 'center',
     justifyContent:'space-evenly',
   },
@@ -159,9 +156,8 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontFamily: 'Comic Sans MS',
-    fontSize: 10,
-    height: '100%'
+    fontSize: 20,
+    width: '100%'
   },
   fundo: {
     width: '100%',
@@ -173,23 +169,22 @@ const styles = StyleSheet.create({
   },
   textoEInput2: {
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
+    flex: 1.5,
+    bottom: 10
   },
   botao: {
+    height: 100,
     width: 200,
-    height: 90,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    flex: 0.25
   },
   cadastro: {
     fontWeight: 'bold',
-    color: 'black',
+    color: 'white',
     fontSize: 30,
     borderBottomWidth: 2,
-    fontFamily: 'Comic Sans MS',
-    marginStart: 10
+    borderColor: 'white',
+    marginStart: 10,
+    marginTop: 20
   },
   textoView: {
     width: '100%',
@@ -200,8 +195,8 @@ const styles = StyleSheet.create({
     padding: 10,
     height: 50,
     width: 50,
-    resizeMode: 'stretch',
     alignItems: 'center',
+    top: 2
   },
   section: {
     flexDirection: 'row',
@@ -209,6 +204,6 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     borderRadius: 50,
-    flex: 1
+    flex: 0.5,
   }
 });

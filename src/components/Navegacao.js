@@ -1,5 +1,4 @@
-import {View, Image, StyleSheet, Pressable, } from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {View, Image, StyleSheet, Pressable} from 'react-native';
 
 export default function Navegacao({navigation}) {
 
@@ -8,7 +7,10 @@ export default function Navegacao({navigation}) {
         <View style={styles.container}>
             
             <Pressable>
-                <FontAwesome5 name='home' size={40}/>
+                <Image
+                    source={require('../../assets/navbar/home.png')}
+                    style={{height: 52, width: 52}}
+                />
             </Pressable>
 
             <Pressable>
@@ -20,7 +22,10 @@ export default function Navegacao({navigation}) {
             </Pressable>
 
             <Pressable onPress={() => navigation.navigate('src/pages/Perfil.js')}>
-                <FontAwesome5 name='user-alt' size={40}/>
+                <Image
+                    source={require('../../assets/navbar/user.png')}
+                    style={{height: 52, width: 52}}
+                />
             </Pressable>
         </View>
     );

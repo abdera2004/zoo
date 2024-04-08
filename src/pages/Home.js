@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Animado from 'react-native-animatable';
 import Navbar from '../../src/components/Navegacao';
@@ -8,10 +8,9 @@ export default function Home({navigation}){
 
   return (
     <View style={styles.container}>
-     
-      <ImageBackground source={require('../../assets/fundo formulario zoo kids.png')} style={styles.fundo}>
+      <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
 
-        <Lp/>
+        <Lp style={{flex: 1}}/>
 
       </ImageBackground>
       <Navbar/>
@@ -26,9 +25,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     titulo: {
-        fontSize: 26,
-        fontWeight: 'bold',
-        fontFamily: 'Snap ITC'
+      fontSize: 26,
+      fontWeight: 'bold',
+      fontFamily: 'Snap ITC'
     },
     fundo: {
       width: '100%',

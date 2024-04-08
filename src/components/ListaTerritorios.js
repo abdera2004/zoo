@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, ImageBackground, FlatList, Pressable} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ListaTerritorios({navigation}) {
 
@@ -6,43 +7,43 @@ export default function ListaTerritorios({navigation}) {
         {
             id: '1',
             title: 'Território 1',
-            imagem: require('../../assets/Território 1.png'),
+            imagem: require('../../assets/fundo/fundo 1 flatlist.png'),
             navegar: console.log('Teste')
         },
         {
             id: '2',
             title: 'Território 2',
-            imagem: require('../../assets/Território 2.png'),
+            imagem: require('../../assets/fundo/fundo flatlist 2.png'),
             navegar: console.log('Teste 2'),
         },
         {
             id: '3',
             title: 'Território 3',
-            imagem: require('../../assets/Território 3.png'),
+            imagem: require('../../assets/fundo/fundo flatlist 3.png'),
             navegar: '',
         },
         {
             id: '4',
             title: 'Território 4',
-            imagem: require('../../assets/Território 4.png'),
+            imagem: require('../../assets/fundo/fundo flatlisst 4.png'),
             navegar: '',
         },
         {
             id: '5',
             title: 'Território 5',
-            imagem: require('../../assets/Território 5.png'),
+            imagem: require('../../assets/fundo/fundo flatlist 5.png'),
             navegar: '',
         },
         {
             id: '6',
             title: 'Território 6',
-            imagem: require('../../assets/Território 6.png'),
+            imagem: require('../../assets/fundo/fundo flatlist 6.png'),
             navegar: '',
         },
       ];
 
     return(
-
+        <SafeAreaView>
         <View>
             <FlatList
                 data={Territorios}
@@ -50,7 +51,7 @@ export default function ListaTerritorios({navigation}) {
                 renderItem={({item})=><Pressable onPress={item.navegar} style={styles.item}><ImageBackground source={item.imagem} style={styles.fundo}><Text style={styles.texto}>{item.title}</Text></ImageBackground></Pressable>}
             />
         </View>
-
+        </SafeAreaView>
     );
 }
 

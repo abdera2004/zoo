@@ -27,14 +27,14 @@ const SplashScreen = ({ navigation }) => {
     });
 
     return (
-      <View style={styles.container}>
-        <ImageBackground source={require('../../assets/zoo.png')} style={styles.fundo}>
-            <Animated.Image
-            style={[styles.logo, { transform: [{ rotate: spin }] }]}
-            source={require('../../assets/carregando.png')} // Substitua pelo seu próprio ícone de carregamento
-            />
-        </ImageBackground>
-      </View>
+        <View style={styles.container}>
+          <ImageBackground source={require('../../assets/zoo.png')} style={styles.fundo}>
+              <Animated.Image
+              style={[styles.logo, { transform: [{ rotate: spin }] }]}
+              source={require('../../assets/carregando.png')} // Substitua pelo seu próprio ícone de carregamento
+              />
+          </ImageBackground>
+        </View>
     );
   };
   
