@@ -1,6 +1,9 @@
 import {View, Image, StyleSheet, Pressable} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Navegacao({navigation}) {
+export default function Navegacao() {
+
+    const navigation = useNavigation();
 
     return(
         
@@ -21,7 +24,7 @@ export default function Navegacao({navigation}) {
                 />
             </Pressable>
 
-            <Pressable onPress={() => navigation.navigate('src/pages/Perfil.js')}>
+            <Pressable onPress={() => navigation.navigate('Perfil')}>
                 <Image
                     source={require('../../assets/navbar/user.png')}
                     style={{height: 52, width: 52}}

@@ -1,8 +1,8 @@
-import { View, Text, Pressable, Image, StyleSheet, TextInput, ImageBackground } from 'react-native';
+import { View, Text, Pressable, Image, StyleSheet, TextInput, ImageBackground, Modal } from 'react-native';
 import Cabecalho from '../components/Cabecalho';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Perfil({navigation}) {
 
@@ -71,6 +71,8 @@ export default function Perfil({navigation}) {
   //   Carregar();
   // }, []);
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.container}>
       <Cabecalho titulo={'Perfil'}/>
@@ -78,26 +80,69 @@ export default function Perfil({navigation}) {
         
         <View style={styles.fotoPerfil}>
           <Image source={require('../../assets/usuario.png')} style={styles.foto}/>
-          <Text style={styles.texto}>NOME</Text>
         </View>
 
         <View style={styles.formulario}>
+          <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', flex: 0.5}}>
+            <Image
+              source={require('../../assets/botoes/botao-info.png')}
+              style={{height: 100, width: 200,}}
+            />
+          </View>
 
-          <Text style={styles.texto}>NOME</Text>
-          <Text value={nome}></Text>
+            <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', flex: 1}}>
+            <Text style={styles.texto}>NOME</Text>
+            <Text></Text>
 
-          <Text style={styles.texto}>IDADE</Text>
-          <Text value={idade}></Text>
+            <Text style={styles.texto}>IDADE</Text>
+            <Text></Text>
 
-          <Text style={styles.texto}>EMAIL</Text>
-          <Text value={email}></Text>
+            <Text style={styles.texto}>EMAIL</Text>
+            <Text></Text>
 
-          <Text style={styles.texto}>SENHA</Text>
-          <Text value={senha}></Text>
+            <Text style={styles.texto}>SENHA</Text>
+            <Text ></Text>
+            </View>
 
+          <View style={styles.alinhamentoBotao}>
+            <Pressable onPress={() => setModalVisible(true)}>
+              <Image
+                source={require('../../assets/botoes/editar.png')}
+                style={{width: 52, height: 52}}
+              />
+            </Pressable>            
+          </View>
         </View>
 
       </ImageBackground>
+
+      <Modal animationType="fade" transparent={true} visible={modalVisible}>
+        <View style={styles.fundoModal}>
+          <View style={styles.conteudoModal}>
+            <Text style={styles.textoModal}>Editar perfil</Text>
+
+            <View style={styles.formularioModal}>
+              <TextInput style={styles.inputModal} placeholder='Nome'/>
+
+              <TextInput style={styles.inputModal} placeholder='Idade'/>
+
+              <TextInput style={styles.inputModal} placeholder='Email'/>
+
+              <TextInput style={styles.inputModal} placeholder='Senha'/>
+            </View>
+
+            <View style={styles.alinhamentoBotaoModal}>
+              <Pressable style={[styles.botaoModal, {backgroundColor: '#054406'}]} onPress={() => setModalVisible(false)}>
+                <Text style={{fontWeight: 'bold', color: 'white'}}>SALVAR</Text>
+              </Pressable>
+
+              <Pressable style={[styles.botaoModal, {backgroundColor: 'red'}]} onPress={() => setModalVisible(false)}>
+                <Text style={{fontWeight: 'bold', color: 'white'}}>DESCARTAR</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
 
     </View>
   );
@@ -148,5 +193,58 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     borderRadius: 100
+  },
+  alinhamentoBotao: {
+    width: '100%',
+    alignItems: 'flex-end',
+    flex: 0.2,
+    padding: 8,
+    marginBottom: 5
+  },
+  fundoModal: {
+    flex: 1,
+    backgroundColor: '#00000070',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  conteudoModal: {
+    width: 276,
+    height: 360,
+    borderWidth: 2,
+    borderRadius: 15,
+    backgroundColor: 'white',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    borderColor: 'grey',
+    paddingVertical: 10
+  },
+  textoModal: {
+    fontSize: 40
+  },
+  inputModal: {
+    borderRadius: 50,
+    borderWidth: 1,
+    width: 200,
+    textAlign: 'center',
+
+  },
+  formularioModal: {
+    justifyContent:'space-evenly',
+    flex: 0.8,
+  },
+  botaoModal: {
+    borderRadius: 50,
+    borderWidth: 1,
+    padding: 10,
+    width: 120,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  alinhamentoBotaoModal: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    flex: 0.25
   }
 })
