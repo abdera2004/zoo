@@ -1,8 +1,10 @@
 import { View, Text, Pressable, Image, StyleSheet, TextInput, ImageBackground, Modal } from 'react-native';
 import Cabecalho from '../components/Cabecalho';
+import Navegacao from '../components/Navegacao';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Perfil({navigation}) {
 
@@ -10,7 +12,9 @@ export default function Perfil({navigation}) {
      {
        try {
             const nome = await AsyncStorage.getItem('nome');
-            return nome !== null ? nome : '';
+            if (nome !== null) {
+            setNome(nome);
+            }
          } catch (error) {
             console.error('Erro:', error);
             return false;
@@ -21,7 +25,9 @@ export default function Perfil({navigation}) {
   {
     try {
         const email = await AsyncStorage.getItem('email');
-        return email !== null ? email : '';
+        if (email !== null) {
+          setEmail(email);
+        }
     } catch (error) {
         console.error('Erro:', error);
         return false;
@@ -32,7 +38,9 @@ const recuperarSenha = async() =>
   {
     try {
         const senha = await AsyncStorage.getItem('senha');
-        return senha !== null ? senha : '';
+        if (senha !== null) {
+          setSenha(senha);
+        }
     } catch (error) {
         console.error('Erro:', error);
         return false;
@@ -43,7 +51,9 @@ const recuperarIdade = async() =>
   {
     try {
         const idade = await AsyncStorage.getItem('idade');
-        return idade !== null ? idade : '';
+        if (idade !== null) {
+          setIdade(idade);
+        }
     } catch (error) {
         console.error('Erro:', error);
         return false;
@@ -60,11 +70,16 @@ const recuperarIdade = async() =>
 
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [dados, setDados] = useState('');
+  const [nome, setNome] = useState('');
+  const [idade, setIdade] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   return (
+    <SafeAreaView style={{flex: 1, backgroundColor: 'transparent'}}>
+      <Cabecalho titulo={"Perfil"}/>
     <View style={styles.container}>
-      <Cabecalho titulo={'Perfil'}/>
+      
       <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
         
         <View style={styles.fotoPerfil}>
@@ -80,18 +95,14 @@ const recuperarIdade = async() =>
             />
           </View>
 
-            <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', flex: 1}}>
-              <Text style={styles.texto}>NOME</Text>
-              <Text>{dados.nome}</Text>
+            <View style={{width: '100%', paddingVertical: 40, justifyContent: 'space-between', alignItems: 'flex-start', flex: 1}}>
+              <Text style={styles.texto}>NOME: {nome}</Text>
 
-              <Text style={styles.texto}>IDADE</Text>
-              <Text>{dados.idade}</Text>
+              <Text style={styles.texto}>IDADE: {idade}</Text>
 
-              <Text style={styles.texto}>EMAIL</Text>
-              <Text>{dados.email}</Text>
+              <Text style={styles.texto}>EMAIL: {email}</Text>
 
-              <Text style={styles.texto}>SENHA</Text>
-              <Text>{dados.senha}</Text>
+              <Text style={styles.texto}>SENHA: {senha}</Text>
             </View>
 
           <View style={styles.alinhamentoBotao}>
@@ -102,8 +113,6 @@ const recuperarIdade = async() =>
               />
             </Pressable>            
           </View>
-
-          
         </View>
 
       </ImageBackground>
@@ -137,13 +146,14 @@ const recuperarIdade = async() =>
       </Modal>
 
     </View>
+      <Navegacao/>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
@@ -154,7 +164,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     flex: 1,
-    paddingVertical: 10
   },
   formulario: {
     flex: 0.7,
@@ -163,9 +172,10 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     alignItems: 'center',
     justifyContent:'space-evenly',
-    backgroundColor: '#d9d9da',
-    padding: 5,
-    borderRadius: 10
+    backgroundColor: '#8A501E',
+    padding: 15,
+    borderRadius: 10,
+    borderWidth: 1
   },
   input: {
     borderWidth: 1,
@@ -177,9 +187,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   texto: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#858363'
+    color: 'white',
   },
   foto: {
     height: 100,
@@ -189,7 +199,7 @@ const styles = StyleSheet.create({
   alinhamentoBotao: {
     width: '100%',
     alignItems: 'flex-end',
-    flex: 0.2,
+    flex: 0.25,
     padding: 8,
     marginBottom: 5
   },
@@ -218,7 +228,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 200,
     textAlign: 'center',
-
   },
   formularioModal: {
     justifyContent:'space-evenly',

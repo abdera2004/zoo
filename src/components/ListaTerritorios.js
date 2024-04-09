@@ -43,7 +43,7 @@ export default function ListaTerritorios({navigation}) {
       ];
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1, backgroundColor: 'transparent'}}>
         <View>
             <FlatList
                 data={Territorios}

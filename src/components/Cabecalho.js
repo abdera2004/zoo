@@ -10,7 +10,7 @@ export default function Cabecalho({titulo}) {
     return(
         <View style={styles.container}>
             <Pressable style={styles.botao} onPress={() => navigation.navigate('Home')}>
-                <FontAwesome5 name='arrow-left' size={30} color={'#858363'}/>
+                <FontAwesome5 name='arrow-left' size={30} color={'grey'}/>
             </Pressable>
 
             <Text style={styles.texto}>{titulo}</Text>
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         alignItems: 'center',
-        flex: 0.14,
+        flex: 0.07,
         borderBottomWidth: 1,
         borderColor: 'grey',
         flexDirection: 'row',
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
     texto: {
         fontSize: 32,
         fontWeight: 'bold',
-        color: '#858363'
+        color: 'grey'
     },
     botao: {
-        marginRight: 10
+        marginRight: 20
     }
 })

@@ -9,7 +9,7 @@ export default function Navegacao() {
         
         <View style={styles.container}>
             
-            <Pressable>
+            <Pressable onPress={() => navigation.navigate('Home')}>
                 <Image
                     source={require('../../assets/navbar/home.png')}
                     style={{height: 52, width: 52}}
