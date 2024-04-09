@@ -58,6 +58,7 @@ const recuperarIdade = async() =>
         return false;
     }
 }
+
   //Executar funções assim que a página for carregada
    useEffect(() => {
     recuperarNome();
@@ -73,6 +74,21 @@ const recuperarIdade = async() =>
   const [idade, setIdade] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+  const atualizarDados = async () => {
+    try {
+      // Salvar os dados do usuário no AsyncStorage
+      await AsyncStorage.setItem('nome', nome);
+      await AsyncStorage.setItem('idade', idade);
+      await AsyncStorage.setItem('email', email);
+      await AsyncStorage.setItem('senha', senha);
+
+      console.log('Perfil do usuário atualizado com sucesso!');
+      Alert.alert('Dados atualizados com sucesso!');
+    } catch (error) {
+      console.error('Erro ao atualizar perfil do usuário:', error);
+    }
+  };
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'transparent'}}>
@@ -122,22 +138,22 @@ const recuperarIdade = async() =>
             <Text style={styles.textoModal}>Editar perfil</Text>
 
             <View style={styles.formularioModal}>
-              <TextInput style={styles.inputModal} placeholder='Nome'/>
+              <TextInput style={styles.inputModal} placeholder='Nome' value={nome} onChangeText={(text) => setNome(text)}/>
 
-              <TextInput style={styles.inputModal} placeholder='Idade'/>
+              <TextInput style={styles.inputModal} placeholder='Idade' value={idade} onChangeText={(text) => setIdade(text)} keyboardType='numeric'/>
 
-              <TextInput style={styles.inputModal} placeholder='Email'/>
+              <TextInput style={styles.inputModal} placeholder='Email' value={email} onChangeText={(text) => setEmail(text)}/>
 
-              <TextInput style={styles.inputModal} placeholder='Senha'/>
+              <TextInput style={styles.inputModal} placeholder='Senha' value={senha} onChangeText={(text) => setSenha(text)}/>
             </View>
 
             <View style={styles.alinhamentoBotaoModal}>
-              <Pressable style={[styles.botaoModal, {backgroundColor: '#054406'}]} onPress={() => setModalVisible(false)}>
+              <Pressable style={[styles.botaoModal, {backgroundColor: '#054406'}]} onPress={atualizarDados}>
                 <Text style={{fontWeight: 'bold', color: 'white'}}>SALVAR</Text>
               </Pressable>
 
               <Pressable style={[styles.botaoModal, {backgroundColor: 'red'}]} onPress={() => setModalVisible(false)}>
-                <Text style={{fontWeight: 'bold', color: 'white'}}>DESCARTAR</Text>
+                <Text style={{fontWeight: 'bold', color: 'white'}}>FECHAR</Text>
               </Pressable>
             </View>
           </View>
