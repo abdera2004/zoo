@@ -1,44 +1,41 @@
 import { StyleSheet, Text, View, ImageBackground, FlatList, Pressable} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
 
-export default function ListaTerritorios({navigation}) {
+export default function ListaTerritorios() {
+
+    const navigation = useNavigation();
 
     const Territorios = [
         {
             id: '1',
             title: 'Território 1',
             imagem: require('../../assets/fundo/fundo 1 flatlist.png'),
-            navegar: console.log('Teste')
         },
         {
             id: '2',
             title: 'Território 2',
             imagem: require('../../assets/fundo/fundo flatlist 2.png'),
-            navegar: console.log('Teste 2'),
         },
         {
             id: '3',
             title: 'Território 3',
             imagem: require('../../assets/fundo/fundo flatlist 3.png'),
-            navegar: '',
         },
         {
             id: '4',
             title: 'Território 4',
             imagem: require('../../assets/fundo/fundo flatlisst 4.png'),
-            navegar: '',
         },
         {
             id: '5',
             title: 'Território 5',
             imagem: require('../../assets/fundo/fundo flatlist 5.png'),
-            navegar: '',
         },
         {
             id: '6',
             title: 'Território 6',
             imagem: require('../../assets/fundo/fundo flatlist 6.png'),
-            navegar: '',
         },
       ];
 
@@ -48,7 +45,7 @@ export default function ListaTerritorios({navigation}) {
             <FlatList
                 data={Territorios}
                 keyExtractor={item=>item.id}
-                renderItem={({item})=><Pressable onPress={item.navegar} style={styles.item}><ImageBackground source={item.imagem} style={styles.fundo}><Text style={styles.texto}>{item.title}</Text></ImageBackground></Pressable>}
+                renderItem={({item})=><Pressable onPress={() => navigation.navigate('Territorio1')} style={styles.item}><ImageBackground source={item.imagem} style={styles.fundo}><Text style={styles.texto}>{item.title}</Text></ImageBackground></Pressable>}
             />
         </View>
         </SafeAreaView>
@@ -60,7 +57,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         marginHorizontal: 16,
         width: 300,
-        height: 110,
+        height: 100,
         borderRadius: 10,
         overflow: 'hidden',
         borderWidth: 1,

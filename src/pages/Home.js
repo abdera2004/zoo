@@ -3,12 +3,14 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Animado from 'react-native-animatable';
 import Navbar from '../../src/components/Navegacao';
 import Lp from '../components/ListaTerritorios';
+import Cabecalho from '../components/Cabecalho';
 
 export default function Home({navigation}){
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
+      <Cabecalho titulo={'Home'} navegarPara={'Login'}/>
+      <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
 
         <Lp style={{flex: 1}}/>
 

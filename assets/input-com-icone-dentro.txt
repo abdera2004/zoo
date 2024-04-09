@@ -1,9 +1,0 @@
-  const InputWithIcon = ({ iconName, ...rest }) => {
-    return (
-      <View style={styles.textoEInput}>
-        <FontAwesome5 name={iconName} size={20} color="gray" style={{left: 10, position: 'absolute'}}/>
-        <TextInput {...rest} style={styles.input} />
-      </View>
-    );
-  }
-  

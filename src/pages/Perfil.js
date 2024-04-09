@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Image, StyleSheet, TextInput, ImageBackground, Modal } from 'react-native';
+import { View, Text, Pressable, Image, StyleSheet, TextInput, ImageBackground, Modal, Alert } from 'react-native';
 import Cabecalho from '../components/Cabecalho';
 import Navegacao from '../components/Navegacao';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -91,10 +91,9 @@ const recuperarIdade = async() =>
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'transparent'}}>
-      <Cabecalho titulo={"Perfil"}/>
-    <View style={styles.container}>
       
+    <View style={styles.container}>
+      <Cabecalho titulo={"Perfil"} navegarPara={'Home'}/>
       <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
         
         <View style={styles.fotoPerfil}>
@@ -159,10 +158,9 @@ const recuperarIdade = async() =>
           </View>
         </View>
       </Modal>
-
-    </View>
       <Navegacao/>
-    </SafeAreaView>
+    </View>
+
   );
 }
 

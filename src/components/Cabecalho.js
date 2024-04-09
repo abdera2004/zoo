@@ -3,13 +3,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation} from '@react-navigation/native';
 
-export default function Cabecalho({titulo}) {
+export default function Cabecalho({titulo, navegarPara}) {
 
     const navigation = useNavigation();
 
     return(
         <View style={styles.container}>
-            <Pressable style={styles.botao} onPress={() => navigation.navigate('Home')}>
+            <Pressable style={styles.botao} onPress={() => navigation.navigate(navegarPara)}>
                 <FontAwesome5 name='arrow-left' size={30} color={'grey'}/>
             </Pressable>
 
