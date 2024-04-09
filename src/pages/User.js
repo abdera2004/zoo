@@ -85,24 +85,26 @@ export default function User({navigation}) {
               <Text style={styles.cadastro}>CADASTRO</Text>
             </View>
 
-              <View style={styles.section}>
-                <FontAwesome5 resizeMode="stretch" name="user-circle" size={25} color="white" style={styles.icone}/>
-                <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
-              </View>
+              <View style={{backgroundColor: '#333333', flex: 2, width: '100%'}}>
+                <View style={styles.section}>
+                  <FontAwesome5 resizeMode="stretch" name="user-circle" size={25} color="white" style={styles.icone}/>
+                  <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
+                </View>
 
-              <View style={styles.section}>
-                <FontAwesome5 resizeMode="stretch" name="birthday-cake" size={25} color="white" style={styles.icone}/>
-                <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
-              </View>
+                <View style={styles.section}>
+                  <FontAwesome5 resizeMode="stretch" name="birthday-cake" size={25} color="white" style={styles.icone}/>
+                  <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
+                </View>
 
-              <View style={styles.section}>
-                <FontAwesome5 resizeMode="stretch" name="envelope" size={25} color="white" style={styles.icone}/>
-              <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
-              </View>
+                <View style={styles.section}>
+                  <FontAwesome5 resizeMode="stretch" name="envelope" size={25} color="white" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
+                </View>
 
-              <View style={styles.section}>
-                <FontAwesome5 resizeMode="stretch" name="lock" size={25} color="white" style={styles.icone}/>
-              <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+                <View style={styles.section}>
+                  <FontAwesome5 resizeMode="stretch" name="lock" size={25} color="white" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+                </View>
               </View>
 
               <View style={styles.textoEInput2}>
@@ -146,6 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333',
     alignItems: 'center',
     justifyContent:'space-evenly',
+    paddingHorizontal: 4
   },
   fundoFormulario: {
     resizeMode: 'cover',
@@ -157,7 +160,8 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 20,
-    width: '100%'
+    width: '100%',
+    color: 'white'
   },
   fundo: {
     width: '100%',
@@ -170,12 +174,13 @@ const styles = StyleSheet.create({
   textoEInput2: {
     alignItems: 'center',
     width: '100%',
-    flex: 1.5,
-    bottom: 10
+    flex: 1,
+    backgroundColor: '#333333'
   },
   botao: {
-    height: 100,
-    width: 200,
+    height: 90,
+    width: 180,
+    flex: 1
   },
   cadastro: {
     fontWeight: 'bold',
@@ -190,20 +195,19 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'flex-start',
     flex: 1,
+    backgroundColor: '#333333'
   },
   icone: {
     padding: 10,
-    height: 50,
-    width: 50,
     alignItems: 'center',
-    top: 2
+  
   },
   section: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 10,
+    margin: 2,
     borderWidth: 1,
     borderRadius: 50,
-    flex: 0.5,
+    flex: 1,
   }
 });

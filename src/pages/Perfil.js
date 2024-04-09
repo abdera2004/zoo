@@ -6,72 +6,61 @@ import { useEffect, useState } from 'react';
 
 export default function Perfil({navigation}) {
 
-  // const Carregar = () => {
+     const recuperarNome = async() =>
+     {
+       try {
+            const nome = await AsyncStorage.getItem('nome');
+            return nome !== null ? nome : '';
+         } catch (error) {
+            console.error('Erro:', error);
+            return false;
+         }
+     }
 
-  //   console.log('Recuperando dados');
+    const recuperarEmail = async() =>
+  {
+    try {
+        const email = await AsyncStorage.getItem('email');
+        return email !== null ? email : '';
+    } catch (error) {
+        console.error('Erro:', error);
+        return false;
+    } 
+}
 
-  //   const resgateNome = async() => {
-  //     AsyncStorage.getItem('nome');  
-  //     .then(value => { 
-  //     if (value !== null) { 
-  //     console.log('Valor recuperado:', value); 
-  //     } else { 
-  //     console.log('Nenhum valor encontrado para a chave especificada'); 
-  //     } 
-  //     }) 
-  //     .catch(error => { 
-  //     console.error('Erro ao recuperar dados:', error); 
-  //     }); 
-  //   };
+const recuperarSenha = async() =>
+  {
+    try {
+        const senha = await AsyncStorage.getItem('senha');
+        return senha !== null ? senha : '';
+    } catch (error) {
+        console.error('Erro:', error);
+        return false;
+    }
+}
 
-  //   const resgateIdade = async() => {
-  //     AsyncStorage.getItem('idade');  
-  //     .then(value => { 
-  //     if (value !== null) { 
-  //     console.log('Valor recuperado:', value); 
-  //     } else { 
-  //     console.log('Nenhum valor encontrado para a chave especificada'); 
-  //     } 
-  //     }) 
-  //     .catch(error => { 
-  //     console.error('Erro ao recuperar dados:', error); 
-  //     }); 
-  //   };
-
-  //   const resgateEmail = async() => {
-  //     AsyncStorage.getItem('email');  
-  //     .then(value => { 
-  //     if (value !== null) { 
-  //     console.log('Valor recuperado:', value); 
-  //     } else { 
-  //     console.log('Nenhum valor encontrado para a chave especificada'); 
-  //     } 
-  //     }) 
-  //     .catch(error => { 
-  //     console.error('Erro ao recuperar dados:', error); 
-  //     }); 
-  //   };
-
-  //   const resgateSenha = async() => {
-  //     AsyncStorage.getItem('senha');  
-  //     .then(value => { 
-  //     if (value !== null) { 
-  //     console.log('Valor recuperado:', value); 
-  //     } else { 
-  //     console.log('Nenhum valor encontrado para a chave especificada'); 
-  //     } 
-  //     }) 
-  //     .catch(error => { 
-  //     console.error('Erro ao recuperar dados:', error); 
-  //     }); 
-  //   };
-
-  // useEffect(() => {
-    
-  //   Carregar();
-  // }, []);
+const recuperarIdade = async() =>
+  {
+    try {
+        const idade = await AsyncStorage.getItem('idade');
+        return idade !== null ? idade : '';
+    } catch (error) {
+        console.error('Erro:', error);
+        return false;
+    }
+}
+  //Executar funções assim que a página for carregada
+   useEffect(() => {
+    recuperarNome();
+    recuperarEmail();
+    recuperarIdade();
+    recuperarSenha();
+    console.log('Recuperando dados');
+   }, []);
 
   const [modalVisible, setModalVisible] = useState(false);
+
+  const [dados, setDados] = useState('');
 
   return (
     <View style={styles.container}>
@@ -83,6 +72,7 @@ export default function Perfil({navigation}) {
         </View>
 
         <View style={styles.formulario}>
+
           <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', flex: 0.5}}>
             <Image
               source={require('../../assets/botoes/botao-info.png')}
@@ -91,17 +81,17 @@ export default function Perfil({navigation}) {
           </View>
 
             <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', flex: 1}}>
-            <Text style={styles.texto}>NOME</Text>
-            <Text></Text>
+              <Text style={styles.texto}>NOME</Text>
+              <Text>{dados.nome}</Text>
 
-            <Text style={styles.texto}>IDADE</Text>
-            <Text></Text>
+              <Text style={styles.texto}>IDADE</Text>
+              <Text>{dados.idade}</Text>
 
-            <Text style={styles.texto}>EMAIL</Text>
-            <Text></Text>
+              <Text style={styles.texto}>EMAIL</Text>
+              <Text>{dados.email}</Text>
 
-            <Text style={styles.texto}>SENHA</Text>
-            <Text ></Text>
+              <Text style={styles.texto}>SENHA</Text>
+              <Text>{dados.senha}</Text>
             </View>
 
           <View style={styles.alinhamentoBotao}>
@@ -112,6 +102,8 @@ export default function Perfil({navigation}) {
               />
             </Pressable>            
           </View>
+
+          
         </View>
 
       </ImageBackground>
@@ -246,5 +238,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     flex: 0.25
-  }
+  },
+  fundoFormulario: {
+    resizeMode: 'contain',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flex: 1,
+    padding: 20,
+    overflow: 'hidden',
+  },
 })
