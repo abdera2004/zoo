@@ -78,52 +78,54 @@ export default function User({navigation}) {
     <View style={styles.container}>
 
       <ImageBackground source={require('../../assets/fundo/fundo-cadastro.png')} style={styles.fundo}>
-      
-        <Animado.View animation="fadeInLeft" duration={2000} style={styles.formulario}>
 
-            <View style={styles.textoView}>
-              <Text style={styles.cadastro}>CADASTRO</Text>
+        <Animado.View animation="fadeInDown" duration={2000} delay={500} style={styles.imagem}>
+          <Image
+          source={require('../../assets/logo zoo kids fundo transparente.png')}
+          resizeMode='contain' style={{flex: 0.8}}
+          />
+        </Animado.View>
+
+        <Animado.View animation="fadeInUp" duration={2500} delay={500} style={styles.cadastro}>
+          <ImageBackground source={require('../../assets/fundo/fundo cadastro.png')} style={styles.fundoCadastro}>
+
+            <View style={styles.titulo}>
+              <Text style={styles.textoTitulo}>CADASTRO</Text>
             </View>
 
-              <View style={{backgroundColor: '#333333', flex: 2, width: '100%'}}>
-                <View style={styles.section}>
-                  <FontAwesome5 resizeMode="stretch" name="user-circle" size={25} color="white" style={styles.icone}/>
-                  <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
-                </View>
-
-                <View style={styles.section}>
-                  <FontAwesome5 resizeMode="stretch" name="birthday-cake" size={25} color="white" style={styles.icone}/>
-                  <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
-                </View>
-
-                <View style={styles.section}>
-                  <FontAwesome5 resizeMode="stretch" name="envelope" size={25} color="white" style={styles.icone}/>
-                <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
-                </View>
-
-                <View style={styles.section}>
-                  <FontAwesome5 resizeMode="stretch" name="lock" size={25} color="white" style={styles.icone}/>
-                <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
-                </View>
+            <View style={styles.botoes}>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="user-circle" size={25} color="#8A501E" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
               </View>
 
-              <View style={styles.textoEInput2}>
-                <Pressable onPress={onPressButton}>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="birthday-cake" size={25} color="#8A501E" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setIdade} value={idade} id='idade' placeholder='Digite sua idade...' />
+              </View>
+
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="envelope" size={25} color="#8A501E" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setEmail} value={email} id='email' autoComplete='email' textContentType='emailAddress' placeholder='Digite o seu e-mail...' />
+              </View>
+
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="lock" size={25} color="#8A501E" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+              </View>
+
+              <View style={styles.botaoCadastrar}>
+                <Pressable onPress={onPressButton} style={styles.ajusteBotao}>
                   <Image
                     source={require('../../assets/botoes/botao cadastrar.png')}
                     style={styles.botao}
-                    resizeMode='cover'
+                    resizeMode='contain'
                   />
                 </Pressable>
               </View>
-
+            </View>
+          </ImageBackground>
         </Animado.View>
-
-        <View style={styles.login}>
-          <Pressable onPress={() => navigation.navigate('Login')}>
-            <Text style={{color: 'yellow'}}>JÁ POSSUI UMA CONTA? FAÇA LOGIN</Text>
-          </Pressable>
-        </View>
 
       </ImageBackground>
 
@@ -134,80 +136,77 @@ export default function User({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-  formulario: {
-    flex: 0.5,
-    width: "70%",
-    flexDirection: 'column',
-    borderWidth: 1,
-    borderRadius: 15,
-    overflow: 'hidden',
-    backgroundColor: '#333333',
-    alignItems: 'center',
-    justifyContent:'space-evenly',
-    paddingHorizontal: 4
-  },
-  fundoFormulario: {
-    resizeMode: 'cover',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    flex: 1,
-    overflow: 'hidden',
-  },
-  input: {
-    flex: 1,
-    fontSize: 20,
-    width: '100%',
-    color: 'white'
+    justifyContent: 'flex-start',
   },
   fundo: {
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
+    justifyContent: 'flex-end',
+    flex: 1,
+  },
+  fundoCadastro: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flex: 1,
+  },
+  cadastro:{
+    flex: 0.7,
+    width: '100%',
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    overflow: 'hidden'
+  },
+  imagem: {
+    flex: 0.5,
+    width: '100%',
     justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-  },
-  textoEInput2: {
-    alignItems: 'center',
-    width: '100%',
-    flex: 1,
-    backgroundColor: '#333333'
-  },
-  botao: {
-    height: 90,
-    width: 180,
-    flex: 1
-  },
-  cadastro: {
-    fontWeight: 'bold',
-    color: 'white',
-    fontSize: 30,
-    borderBottomWidth: 2,
-    borderColor: 'white',
-    marginStart: 10,
-    marginTop: 20
-  },
-  textoView: {
-    width: '100%',
-    alignItems: 'flex-start',
-    flex: 1,
-    backgroundColor: '#333333'
-  },
-  icone: {
-    padding: 10,
-    alignItems: 'center',
-  
+    alignItems: 'center'
   },
   section: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 2,
-    borderWidth: 1,
+    margin: 10,
     borderRadius: 50,
+    backgroundColor: 'white'
+  },
+  icone: {
+    padding: 10,
+    alignItems: 'center',
+  },
+  input: {
+    fontSize: 20,
+    width: '100%',
+    color: '#8A501E',
+  },
+  botoes: {
     flex: 1,
-  }
+    width: '100%',
+    justifyContent: 'space-evenly',
+  },
+  titulo:{
+    flex: 0.125,
+    width: '100%',
+    padding: 20,
+  },
+  textoTitulo: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    borderBottomWidth: 2,
+  },
+  botao: {
+    height: 100,
+    width: 200,
+  },
+  botaoCadastrar: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    padding: 5,
+  },
 });
