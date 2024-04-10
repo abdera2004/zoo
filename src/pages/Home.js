@@ -3,7 +3,7 @@ import * as Animado from 'react-native-animatable';
 import Navegacao from '../../src/components/Navegacao';
 import Cabecalho from '../components/Cabecalho';
 
-export default function Home() {
+export default function Home({navigation}) {
 
     const Territorios = [
         {

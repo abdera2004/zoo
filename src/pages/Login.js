@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Image, Alert } from 'react-native';
 import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useState} from 'react';
 
 export default function Login({navigation}) {
@@ -19,6 +21,8 @@ export default function Login({navigation}) {
         // Login bem-sucedido, você pode navegar para a próxima tela ou executar a lógica apropriada
         console.log('Login bem-sucedido');
         navigation.navigate('Home');
+        setNome('');
+        setSenha('');
       } else {
         // Caso contrário, exibe uma mensagem de erro
         Alert.alert('Erro!', 'Informações inválidas', [
@@ -34,36 +38,58 @@ export default function Login({navigation}) {
   return (
     <View style={styles.container}>
 
-      <ImageBackground source={require('../../assets/fundo-zoo.jpg')} style={styles.fundo}>
+      <ImageBackground source={require('../../assets/fundo/fundo-cadastro.png')} style={styles.fundo}>
+        <Animado.View animation="fadeInDown" duration={2500} style={styles.cadastro}>
+          <ImageBackground source={require('../../assets/fundo/fundo cadastro.png')} style={styles.fundoLogin}>
 
-        <Animado.Image animation="bounceInDown" duration={2000} delay={500} source={require('../../assets/logo zoo kids fundo transparente.png')} resizeMode='contain' style={{width: '90%', flex: 0.39}}></Animado.Image>
+            <View style={styles.titulo}>
+              <Text style={styles.textoTitulo}>LOGIN</Text>
+            </View>
 
-        <Animado.View animation="fadeInLeft" duration={2000} delay={1500} style={styles.formulario}>
+            <View style={styles.botoes}>
 
-          <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundoFormulario}>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="user-circle" size={25} color="#8A501E" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setNome} value={nome} id='nome' autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' />
+              </View>
 
-          <View style={styles.textoEInput}>
-            <TextInput style={styles.input} value={nome} onChangeText={setNome} autoComplete='name' textContentType='name' placeholder='Digite o seu nome...' ></TextInput>
-          </View>
-          
-          <View style={styles.textoEInput}>
-            <TextInput style={styles.input} value={senha} onChangeText={setSenha} autoComplete='password' textContentType='password' placeholder='Digite sua senha...'></TextInput>
-          </View>
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="lock" size={25} color="#8A501E" style={styles.icone}/>
+                <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
+              </View>
 
-          <View style={styles.textoEInput}>
-            <Pressable style={styles.botao} onPress={Login}>
-                <Image
-                source={require('../../assets/botoes/botao logar transparente.png')}
-                resizeMode='cover'
-                style={styles.imagemBotao}
-                />
-            </Pressable>
-          </View>
+              <View style={styles.botaoLogar}>
+                <Pressable onPress={Login} style={styles.ajusteBotao}>
+                  <Image
+                    source={require('../../assets/botoes/botao logar transparente.png')}
+                    style={styles.botao}
+                    resizeMode='contain'
+                  />
+                </Pressable>
+              </View>
+
+              <View style={{flex: 0.3, width: '100%', alignItems: 'center'}}>
+                <Text style={{fontSize: 24, fontWeight: 'bold'}}>OU</Text>
+              </View>
+
+              <View style={styles.section}>
+                <AntDesign resizeMode="stretch" name="google" size={25} color="#8A501E" style={styles.icone}/>
+                <Pressable style={styles.inputBotao}>
+                  <Text style={{fontWeight: 'bold'}}>ENTRAR COM O GOOGLE</Text>
+                </Pressable>
+              </View>
+
+              <View style={styles.section}>
+                <FontAwesome5 resizeMode="stretch" name="phone" size={25} color="#8A501E" style={styles.icone}/>
+                <Pressable style={styles.inputBotao}>
+                  <Text style={{fontWeight: 'bold'}}>ENTRAR COM O NÚMERO DE TELEFONE</Text>
+                </Pressable>
+              </View>
+
+            </View>
 
           </ImageBackground>
-
         </Animado.View>
-
       </ImageBackground>
 
     </View>
@@ -77,68 +103,78 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  formulario: {
-    flex: 0.4,
-    width: '70%',
-    marginBottom: 5,
-    borderRadius: 15,
-    overflow: 'hidden',
-    borderWidth: 1
-  },
-  input: {
-    backgroundColor: 'white',
-    borderRadius: 50,
-    height: 55,
-    width: 200,
-    paddingHorizontal: 2,
-    textAlign: 'center'
-  },
-  textoFormulario: {
-    color: 'white',
-    fontWeight: 'bold',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  texto: {  
-    color: 'white',
-    fontWeight: 'bold'
-  },
   fundo: {
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
-    justifyContent: 'space-evenly',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     flex: 1,
   },
-  fundoFormulario: {
-    resizeMode: 'contain',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    flex: 1,
-    padding: 20,
+  cadastro:{
+    flex: 0.6,
+    width: '100%',
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
     overflow: 'hidden',
+    backgroundColor: '#fff'
   },
-  fundoBotao: {
+  fundoLogin: {
     width: '100%',
     height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
     resizeMode: 'contain',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     flex: 1,
   },
-  textoEInput: {
+  titulo:{
+    flex: 0.125,
+    width: '100%',
+    padding: 20,
+  },
+  textoTitulo: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    borderBottomWidth: 2,
+  },
+  section: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: 10,
+    borderRadius: 50,
+    backgroundColor: 'white'
+  },
+  icone: {
+    padding: 10,
+    alignItems: 'center',
+  },
+  input: {
+    fontSize: 20,
+    width: '100%',
+    color: '#8A501E',
+  },
+  inputBotao: {
+    fontSize: 20,
+    width: '100%',
+    color: '#8A501E',
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'absolute'
+  },
+  botoes: {
     flex: 1,
-    paddingTop: 5
+    width: '100%',
+    justifyContent: 'space-evenly',
+  },
+  botaoLogar: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    padding: 5,
   },
   botao: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: 100,
+    width: 200,
   },
-  imagemBotao: {
-    width: 150,
-    height: 80,
-  }
 });

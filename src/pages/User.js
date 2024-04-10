@@ -113,6 +113,12 @@ export default function User({navigation}) {
                 <FontAwesome5 resizeMode="stretch" name="lock" size={25} color="#8A501E" style={styles.icone}/>
                 <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
               </View>
+              
+              <View style={{flex: 0.2, width: '100%', alignItems: 'center'}}>
+                <Pressable onPress={() => navigation.navigate('Login')}>
+                  <Text>Já possui uma conta? Faça login</Text>
+                </Pressable>
+              </View>
 
               <View style={styles.botaoCadastrar}>
                 <Pressable onPress={onPressButton} style={styles.ajusteBotao}>
