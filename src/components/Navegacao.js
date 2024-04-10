@@ -12,7 +12,7 @@ export default function Navegacao() {
             <Pressable onPress={() => navigation.navigate('Home')}>
                 <Image
                     source={require('../../assets/navbar/home.png')}
-                    style={{height: 52, width: 52}}
+                    style={{height: 48, width: 48}}
                 />
             </Pressable>
 
@@ -27,7 +27,7 @@ export default function Navegacao() {
             <Pressable onPress={() => navigation.navigate('Perfil')}>
                 <Image
                     source={require('../../assets/navbar/user.png')}
-                    style={{height: 52, width: 52}}
+                    style={{height: 48, width: 48}}
                 />
             </Pressable>
         </View>

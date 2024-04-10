@@ -3,7 +3,6 @@ import Cabecalho from '../components/Cabecalho';
 import Navegacao from '../components/Navegacao';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Perfil({navigation}) {
 

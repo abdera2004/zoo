@@ -82,7 +82,7 @@ export default function Territorio1() {
                                         <Image source={selectedAnimal.imagem} style={{ width: '100%', height: 100, borderRadius: 10 }}/>
                                     </View>
                                     
-                                    <View style={{width: '100%', flex: 1.5}}>
+                                    <View style={{width: '100%', flex: 1.6}}>
                                         <Text style={styles.titulo}>{selectedAnimal.title}</Text>
                                         <Text style={styles.textoModal}>Habitat: {selectedAnimal.habitat}</Text>
                                         <Text style={styles.textoModal}>Expectativa de vida: {selectedAnimal.vida}</Text>
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         resizeMode: 'cover',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
     },
@@ -130,8 +130,6 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         borderWidth: 1,
         borderColor: '#604502',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     texto: {
         fontSize: 30,
@@ -161,7 +159,7 @@ const styles = StyleSheet.create({
     fundoModalConteudo: {
         width: 276,
         height: 360,
-        padding: 10,
+        padding: 5,
     },
     alinhamentoBotao: {
         width: '100%',
@@ -172,7 +170,8 @@ const styles = StyleSheet.create({
     titulo: {
         fontWeight: 'bold',
         fontSize: 24,
-        color: 'white'
+        color: 'white',
+        bottom: 12
     },
     textoModal: {
         fontSize: 16,

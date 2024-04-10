@@ -6,10 +6,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function App() {
   return (
     <NavigationContainer>
-      <SafeAreaView style={{flex: 1}}>
+      
       <StatusBar style='auto' backgroundColor='#669900' barStyle='light-content'/>
       <Routes/>
-      </SafeAreaView>
+      
     </NavigationContainer>
   );
 };
