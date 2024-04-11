@@ -58,19 +58,16 @@ export default function Login({navigation}) {
                 <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
               </View>
 
-              <View style={styles.botaoLogar}>
-                <Pressable onPress={Login} style={styles.ajusteBotao}>
-                  <Image
-                    source={require('../../assets/botoes/botao logar transparente.png')}
-                    style={styles.botao}
-                    resizeMode='contain'
-                  />
-                </Pressable>
-              </View>
-
-              <View style={{flex: 0.3, width: '100%', alignItems: 'center'}}>
-                <Text style={{fontSize: 24, fontWeight: 'bold'}}>OU</Text>
-              </View>
+              
+              <Pressable onPress={Login} style={styles.ajusteBotao}>
+                <Image
+                   source={require('../../assets/botoes/botao logar transparente.png')}
+                   style={styles.botao}
+                  resizeMode='contain'
+                />
+              </Pressable>
+              
+              <Text style={{fontSize: 24, fontWeight: 'bold'}}>OU</Text>
 
               <View style={styles.section}>
                 <AntDesign resizeMode="stretch" name="google" size={25} color="#8A501E" style={styles.icone}/>
@@ -99,7 +96,6 @@ export default function Login({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -108,7 +104,6 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
     justifyContent: 'flex-start',
-    alignItems: 'center',
     flex: 1,
   },
   cadastro:{
@@ -117,7 +112,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     overflow: 'hidden',
-    backgroundColor: '#fff'
   },
   fundoLogin: {
     width: '100%',
@@ -142,7 +136,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 10,
     borderRadius: 50,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    width: '90%',
   },
   icone: {
     padding: 10,
@@ -165,13 +160,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     justifyContent: 'space-evenly',
-  },
-  botaoLogar: {
-    flex: 1,
-    width: '100%',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    padding: 5,
+    alignItems: 'center'
   },
   botao: {
     height: 100,

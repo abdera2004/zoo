@@ -114,13 +114,10 @@ export default function User({navigation}) {
                 <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
               </View>
               
-              <View style={{flex: 0.2, width: '100%', alignItems: 'center'}}>
                 <Pressable onPress={() => navigation.navigate('Login')}>
                   <Text>Já possui uma conta? Faça login</Text>
                 </Pressable>
-              </View>
 
-              <View style={styles.botaoCadastrar}>
                 <Pressable onPress={onPressButton} style={styles.ajusteBotao}>
                   <Image
                     source={require('../../assets/botoes/botao cadastrar.png')}
@@ -128,7 +125,7 @@ export default function User({navigation}) {
                     resizeMode='contain'
                   />
                 </Pressable>
-              </View>
+
             </View>
           </ImageBackground>
         </Animado.View>
@@ -143,7 +140,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
   fundo: {
     width: '100%',
@@ -161,7 +158,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cadastro:{
-    flex: 0.7,
+    flex: 0.6,
     width: '100%',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
@@ -178,7 +175,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 10,
     borderRadius: 50,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    width: '90%'
   },
   icone: {
     padding: 10,
@@ -193,6 +191,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     justifyContent: 'space-evenly',
+    alignItems: 'center'
   },
   titulo:{
     flex: 0.125,
@@ -207,12 +206,5 @@ const styles = StyleSheet.create({
   botao: {
     height: 100,
     width: 200,
-  },
-  botaoCadastrar: {
-    flex: 1,
-    width: '100%',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    padding: 5,
   },
 });
