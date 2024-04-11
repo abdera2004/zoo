@@ -60,7 +60,7 @@ export default function Territorio1() {
                 <FlatList
                     data={Animais}
                     keyExtractor={item=>item.id}
-                    renderItem={({item})=><Pressable onPress={() => {setSelectedAnimal(item); setModalVisible(true)}} style={styles.item}><ImageBackground resizeMode='stretch' source={item.imagem} style={styles.fundoFlatlist}><Text style={styles.texto}>{item.title}</Text></ImageBackground></Pressable>}
+                    renderItem={({item})=><Animado.View animation="fadeInLeft" duration={2000}><Pressable onPress={() => {setSelectedAnimal(item); setModalVisible(true)}} style={styles.item}><ImageBackground resizeMode='stretch' source={item.imagem} style={styles.fundoFlatlist}><Text style={styles.texto}>{item.title}</Text></ImageBackground></Pressable></Animado.View>}
                 />
             </ImageBackground>
             <Navegacao/>
