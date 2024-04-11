@@ -3,8 +3,9 @@ import Cabecalho from '../components/Cabecalho';
 import Navegacao from '../components/Navegacao';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
+import * as Animado from 'react-native-animatable';
 
-export default function Perfil({navigation}) {
+export default function Perfil() {
 
      const recuperarNome = async() =>
      {
@@ -95,11 +96,13 @@ const recuperarIdade = async() =>
       <Cabecalho titulo={"Perfil"} navegarPara={'Home'}/>
       <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
         
-        <View style={styles.fotoPerfil}>
+        <Animado.View animation="flipInX" style={styles.fotoPerfil}>
           <Image source={require('../../assets/usuario.png')} style={styles.foto}/>
-        </View>
+        </Animado.View>
 
-        <View style={styles.formulario}>
+        <Animado.View animation="flipInX" delay={500} duration={1000} style={styles.formulario}>
+
+          <ImageBackground source={require('../../assets/fundo/fundo modal.png')} style={styles.fundoFormulario}>
 
           <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', flex: 0.5}}>
             <Image
@@ -126,7 +129,8 @@ const recuperarIdade = async() =>
               />
             </Pressable>            
           </View>
-        </View>
+          </ImageBackground>
+        </Animado.View>
 
       </ImageBackground>
 
@@ -136,12 +140,17 @@ const recuperarIdade = async() =>
             <Text style={styles.textoModal}>Editar perfil</Text>
 
             <View style={styles.formularioModal}>
+
+              <Text>Nome</Text>
               <TextInput style={styles.inputModal} placeholder='Nome' value={nome} onChangeText={(text) => setNome(text)}/>
 
+              <Text>Idade</Text>
               <TextInput style={styles.inputModal} placeholder='Idade' value={idade} onChangeText={(text) => setIdade(text)} keyboardType='numeric'/>
 
+              <Text>E-mail</Text>
               <TextInput style={styles.inputModal} placeholder='Email' value={email} onChangeText={(text) => setEmail(text)}/>
 
+              <Text>Senha</Text>
               <TextInput style={styles.inputModal} placeholder='Senha' value={senha} onChangeText={(text) => setSenha(text)}/>
             </View>
 
@@ -177,6 +186,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
+  fundoFormulario: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flex: 1,
+    paddingHorizontal: 5
+  },
   formulario: {
     flex: 0.7,
     width: '80%',
@@ -184,8 +202,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     alignItems: 'center',
     justifyContent:'space-evenly',
-    backgroundColor: '#8A501E',
-    padding: 15,
     borderRadius: 10,
     borderWidth: 1
   },
@@ -240,6 +256,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 200,
     textAlign: 'center',
+    height: 200,
+    marginBottom: 5
   },
   formularioModal: {
     justifyContent:'space-evenly',
@@ -259,13 +277,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     flex: 0.25
-  },
-  fundoFormulario: {
-    resizeMode: 'contain',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    flex: 1,
-    padding: 20,
-    overflow: 'hidden',
   },
 })
