@@ -2,6 +2,7 @@ import { Text, View, StyleSheet, Modal, ImageBackground, FlatList, Pressable, Im
 import Navegacao from '../components/Navegacao';
 import Cabecalho from '../components/Cabecalho';
 import { useState } from 'react';
+import * as Animado from 'react-native-animatable';
 
 export default function Territorio1() {
 
@@ -52,14 +53,6 @@ export default function Territorio1() {
 
       const [selectedAnimal, setSelectedAnimal] = useState(null);
 
-      const renderItem = ({ item }) => (
-        <View>
-          <Image source={item.image} style={{ width: 100, height: 100 }} />
-          <Pressable title="Ver Animal" onPress={() => { setSelectedAnimal(item); setModalVisible(true); }} />
-          <Text>{item.habitat}</Text>
-        </View>
-      );
-
   return (
         <View style={styles.container}>
             <Cabecalho titulo={'Território 1'} navegarPara={'Home'}/>
@@ -72,8 +65,8 @@ export default function Territorio1() {
             </ImageBackground>
             <Navegacao/>
 
-            <Modal animationType="fade" transparent={true} visible={modalVisible}>
-                <View style={styles.fundoModal}>
+            <Modal transparent={true} visible={modalVisible}>
+                <Animado.View animation="fadeInLeft" style={styles.fundoModal}>
                     <View style={styles.conteudoModal}>
                         <ImageBackground source={require('../../assets/fundo/fundo modal.png')} style={styles.fundoModalConteudo}>
                                 {selectedAnimal && (
@@ -101,7 +94,7 @@ export default function Territorio1() {
                                  )}
                         </ImageBackground>
                     </View>
-                </View>
+                </Animado.View>
             </Modal>
         </View>
   );
@@ -146,7 +139,6 @@ const styles = StyleSheet.create({
     },
     fundoModal: {
         flex: 1,
-        backgroundColor: '#00000070',
         justifyContent: 'center',
         alignItems: 'center',
     },

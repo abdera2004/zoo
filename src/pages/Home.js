@@ -43,10 +43,10 @@ export default function Home({navigation}) {
           <Cabecalho titulo={'Home'} navegarPara={'Login'}/>
             <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
               <FlatList
-                  style={{flex: 1}}
-                  data={Territorios}
-                  keyExtractor={item=>item.id}
-                  renderItem={({item})=><Pressable onPress={() => navigation.navigate('Territorio1')} style={styles.item}><ImageBackground source={item.imagem} style={styles.fundo}><Text style={styles.texto}>{item.title}</Text></ImageBackground></Pressable>}
+                style={{flex: 1}}
+                data={Territorios}
+                keyExtractor={item=>item.id}
+                renderItem={({item})=><Animado.View animation="fadeInLeft" duration={2000}><Pressable onPress={() => navigation.navigate('Territorio1')} style={styles.item}><ImageBackground source={item.imagem} style={styles.fundo}><Text style={styles.texto}>{item.title}</Text></ImageBackground></Pressable></Animado.View>}
               />
             </ImageBackground>
           <Navegacao/>
