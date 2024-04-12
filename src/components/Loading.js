@@ -8,7 +8,7 @@ export default function Loading({mostrar}) {
         <>
         {mostrar && (
         <View style={{flex: 1, width: '100%', height: '100%', backgroundColor: 'transparent', backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', position: 'absolute',}}>
-            <ActivityIndicator size="large" color="red" animating={mostrar}/>
+            <ActivityIndicator size={70} color="dodgerblue" animating={mostrar}/>
         </View>
         )}
         </>
