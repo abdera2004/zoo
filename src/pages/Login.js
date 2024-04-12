@@ -58,31 +58,28 @@ export default function Login({navigation}) {
                 <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
               </View>
 
-              
-              <Pressable onPress={Login} style={styles.ajusteBotao}>
-                <Image
-                   source={require('../../assets/botoes/botao logar transparente.png')}
-                   style={styles.botao}
-                  resizeMode='contain'
-                />
-              </Pressable>
-              
-              <Text style={{fontSize: 24, fontWeight: 'bold'}}>OU</Text>
-
               <View style={styles.section}>
                 <AntDesign resizeMode="stretch" name="google" size={25} color="#8A501E" style={styles.icone}/>
                 <Pressable style={styles.inputBotao}>
                   <Text style={{fontWeight: 'bold'}}>ENTRAR COM O GOOGLE</Text>
                 </Pressable>
-              </View>
+              </View> 
 
               <View style={styles.section}>
                 <FontAwesome5 resizeMode="stretch" name="phone" size={25} color="#8A501E" style={styles.icone}/>
                 <Pressable style={styles.inputBotao}>
                   <Text style={{fontWeight: 'bold'}}>ENTRAR COM O NÚMERO DE TELEFONE</Text>
                 </Pressable>
-              </View>
+              </View>              
 
+              <Pressable onPress={Login}>
+                <Image
+                   source={require('../../assets/botoes/botao logar transparente.png')}
+                   style={styles.botao}
+                  resizeMode='contain'
+                />
+              </Pressable>
+            
             </View>
 
           </ImageBackground>
@@ -107,7 +104,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cadastro:{
-    flex: 0.6,
+    flex: 0.7,
     width: '100%',
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
