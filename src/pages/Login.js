@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useState} from 'react';
+import Loading from '../components/Loading';
 
 export default function Login({navigation}) {
 
@@ -20,7 +21,7 @@ export default function Login({navigation}) {
       if (nome === storedUsername && senha === storedPassword) {
         // Login bem-sucedido, você pode navegar para a próxima tela ou executar a lógica apropriada
         console.log('Login bem-sucedido');
-        navigation.navigate('Home');
+        Aparecer();
         setNome('');
         setSenha('');
       } else {
@@ -34,6 +35,16 @@ export default function Login({navigation}) {
       console.error('Erro ao recuperar os dados do AsyncStorage:', error);
     }
   };
+
+  const [mostrar, setMostrar] = useState(false);
+
+  const Aparecer = () => {
+      setMostrar(true)
+      setTimeout(() => {
+          setMostrar(false)
+          navigation.navigate('Home')
+      }, 3000)
+  }
 
   return (
     <View style={styles.container}>
@@ -85,7 +96,7 @@ export default function Login({navigation}) {
           </ImageBackground>
         </Animado.View>
       </ImageBackground>
-
+      <Loading mostrar={mostrar}/>
     </View>
   );
 }

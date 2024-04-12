@@ -1,5 +1,6 @@
 import {View, Image, StyleSheet, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Loading from '../components/Loading';
 
 export default function Navegacao() {
 
@@ -44,6 +45,8 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: 'grey',
         flexDirection: 'row',
-        paddingHorizontal: 5
+        paddingHorizontal: 5,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15
     },
 })

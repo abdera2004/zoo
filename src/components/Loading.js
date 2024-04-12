@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import {ActivityIndicator, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
 export default function Loading({mostrar}) {
 
