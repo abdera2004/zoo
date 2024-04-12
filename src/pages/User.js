@@ -1,11 +1,12 @@
 //Cadastro do usuário
 
-import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Alert, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, Pressable, Alert, Image,} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useState} from 'react';
 import Axios from 'axios';
+import Loading from '../components/Loading';
 
 export default function User({navigation}) {
 
@@ -21,13 +22,11 @@ export default function User({navigation}) {
        console.log('Os campos devem ser preenchidos');
        //Caso contrário, ele vai enviar as informações dos campos para o banco de dados, armazenar localmente e navegar para a página de login.
      } else{
-       Carregar()
+       Carregar();
        console.log('Carregar executada');
-
        armazenarLocalmente();
-      
-       navigation.navigate('Login');
-       console.log('Navegação executada');      
+       console.log('Navegação executada');
+       Aparecer();
      }
 
    };
@@ -74,6 +73,16 @@ export default function User({navigation}) {
    }
    }
 
+   const [mostrar, setMostrar] = useState(false);
+
+   const Aparecer = () => {
+       setMostrar(true)
+       setTimeout(() => {
+           setMostrar(false)
+           navigation.navigate('Login')
+       }, 3000)
+   }
+
   return (
     <View style={styles.container}>
 
@@ -115,10 +124,10 @@ export default function User({navigation}) {
               </View>
               
                 <Pressable onPress={() => navigation.navigate('Login')}>
-                  <Text>Já possui uma conta? Faça login</Text>
+                  <Text style={styles.texto}>Já possui uma conta? Faça login</Text>
                 </Pressable>
 
-                <Pressable onPress={onPressButton} style={styles.ajusteBotao}>
+                <Pressable onPress={onPressButton}>
                   <Image
                     source={require('../../assets/botoes/botao cadastrar.png')}
                     style={styles.botao}
@@ -131,7 +140,7 @@ export default function User({navigation}) {
         </Animado.View>
 
       </ImageBackground>
-
+      <Loading mostrar={mostrar}/>
     </View>
 
   );
@@ -158,7 +167,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cadastro:{
-    flex: 0.6,
+    flex: 0.75,
     width: '100%',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
@@ -207,4 +216,8 @@ const styles = StyleSheet.create({
     height: 100,
     width: 200,
   },
+  texto: {
+    fontWeight: 'bold',
+    margin: 5
+  }
 });

@@ -6,6 +6,7 @@ import Home from '../pages/Home';
 import Perfil from '../pages/Perfil';
 import Navegacao from '../components/Navegacao';
 import Splash from '../components/Splash';
+import Loading from '../components/Loading';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,11 @@ const Routes = () =>{
             <Stack.Screen
             name="Territorio1"
             component={Territorio1}
+            options={{headerShown: false}}
+            />
+            <Stack.Screen
+            name="Loading"
+            component={Loading}
             options={{headerShown: false}}
             />
         </Stack.Navigator>
