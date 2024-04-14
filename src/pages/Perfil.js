@@ -4,6 +4,10 @@ import Navegacao from '../components/Navegacao';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
 import * as Animado from 'react-native-animatable';
+import {
+  useFonts,
+  ChangaOne_400Regular,
+} from '@expo-google-fonts/changa-one';
 
 export default function Perfil() {
 
@@ -90,6 +94,10 @@ const recuperarIdade = async() =>
     }
   };
 
+  useFonts({
+    ChangaOne_400Regular,
+  });
+
   return (
       
     <View style={styles.container}>
@@ -141,26 +149,26 @@ const recuperarIdade = async() =>
 
             <View style={styles.formularioModal}>
 
-              <Text>Nome</Text>
+              <Text style={styles.texto}>Nome</Text>
               <TextInput style={styles.inputModal} placeholder='Nome' value={nome} onChangeText={(text) => setNome(text)}/>
 
-              <Text>Idade</Text>
+              <Text style={styles.texto}>Idade</Text>
               <TextInput style={styles.inputModal} placeholder='Idade' value={idade} onChangeText={(text) => setIdade(text)} keyboardType='numeric'/>
 
-              <Text>E-mail</Text>
+              <Text style={styles.texto}>E-mail</Text>
               <TextInput style={styles.inputModal} placeholder='Email' value={email} onChangeText={(text) => setEmail(text)}/>
 
-              <Text>Senha</Text>
+              <Text style={styles.texto}>Senha</Text>
               <TextInput style={styles.inputModal} placeholder='Senha' value={senha} onChangeText={(text) => setSenha(text)}/>
             </View>
 
             <View style={styles.alinhamentoBotaoModal}>
               <Pressable style={[styles.botaoModal, {backgroundColor: '#054406'}]} onPress={atualizarDados}>
-                <Text style={{fontWeight: 'bold', color: 'white'}}>SALVAR</Text>
+                <Text style={{fontWeight: 'bold', color: 'white', fontFamily: 'ChangaOne_400Regular'}}>SALVAR</Text>
               </Pressable>
 
               <Pressable style={[styles.botaoModal, {backgroundColor: 'red'}]} onPress={() => setModalVisible(false)}>
-                <Text style={{fontWeight: 'bold', color: 'white'}}>FECHAR</Text>
+                <Text style={{fontWeight: 'bold', color: 'white', fontFamily: 'ChangaOne_400Regular'}}>FECHAR</Text>
               </Pressable>
             </View>
           </View>
@@ -217,7 +225,8 @@ const styles = StyleSheet.create({
   texto: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
+    fontFamily: 'ChangaOne_400Regular'
   },
   foto: {
     height: 100,
@@ -249,7 +258,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10
   },
   textoModal: {
-    fontSize: 40
+    fontSize: 40,
+    fontFamily: 'ChangaOne_400Regular'
   },
   inputModal: {
     borderRadius: 50,
@@ -257,7 +267,8 @@ const styles = StyleSheet.create({
     width: 200,
     textAlign: 'center',
     height: 200,
-    marginBottom: 5
+    marginBottom: 5,
+    fontFamily: 'ChangaOne_400Regular'
   },
   formularioModal: {
     justifyContent:'space-evenly',
@@ -270,7 +281,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   alinhamentoBotaoModal: {
     width: '100%',

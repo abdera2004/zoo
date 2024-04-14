@@ -3,6 +3,10 @@ import Navegacao from '../components/Navegacao';
 import Cabecalho from '../components/Cabecalho';
 import { useState } from 'react';
 import * as Animado from 'react-native-animatable';
+import {
+    useFonts,
+    ChangaOne_400Regular,
+  } from '@expo-google-fonts/changa-one';
 
 export default function Territorio1() {
 
@@ -52,6 +56,10 @@ export default function Territorio1() {
       const [modalVisible, setModalVisible] = useState(false);
 
       const [selectedAnimal, setSelectedAnimal] = useState(null);
+
+      useFonts({
+        ChangaOne_400Regular,
+      });
 
   return (
         <View style={styles.container}>
@@ -128,7 +136,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         color: '#f8cd23',
-        fontFamily: ''
+        fontFamily: 'ChangaOne_400Regular'
     },
     fundoFlatlist: {
         width: '100%',
@@ -162,12 +170,14 @@ const styles = StyleSheet.create({
     titulo: {
         fontWeight: 'bold',
         fontSize: 24,
-        color: 'white',
-        bottom: 12
+        color: 'black',
+        bottom: 12,
+        fontFamily: 'ChangaOne_400Regular'
     },
     textoModal: {
         fontSize: 16,
-        color: 'white',
+        color: 'black',
+        fontFamily: 'ChangaOne_400Regular'
     },
     alinhamentoBotao: {
         width: '100%',

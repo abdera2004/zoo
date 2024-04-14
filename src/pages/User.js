@@ -7,6 +7,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useState} from 'react';
 import Axios from 'axios';
 import Loading from '../components/Loading';
+import {
+  useFonts,
+  ChangaOne_400Regular,
+} from '@expo-google-fonts/changa-one';
 
 export default function User({navigation}) {
 
@@ -82,6 +86,10 @@ export default function User({navigation}) {
            navigation.navigate('Login')
        }, 3000)
    }
+
+  useFonts({
+    ChangaOne_400Regular,
+  });
 
   return (
     <View style={styles.container}>
@@ -195,6 +203,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: '100%',
     color: '#8A501E',
+    fontFamily: 'ChangaOne_400Regular'
   },
   botoes: {
     flex: 1,
@@ -211,6 +220,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     borderBottomWidth: 2,
+    fontFamily: 'ChangaOne_400Regular'
   },
   botao: {
     height: 100,
@@ -218,6 +228,7 @@ const styles = StyleSheet.create({
   },
   texto: {
     fontWeight: 'bold',
-    margin: 5
+    margin: 5,
+    fontFamily: 'ChangaOne_400Regular'
   }
 });

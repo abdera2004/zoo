@@ -1,10 +1,18 @@
-import {View, Image, StyleSheet, Pressable, ImageBackground, Text } from 'react-native';
+import {View, StyleSheet, Pressable, Text } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation} from '@react-navigation/native';
+import {
+    useFonts,
+    ChangaOne_400Regular,
+  } from '@expo-google-fonts/changa-one';
 
 export default function Cabecalho({titulo, navegarPara}) {
 
     const navigation = useNavigation();
+
+    useFonts({
+        ChangaOne_400Regular,
+      });
 
     return(
         <View style={styles.container}>
@@ -27,13 +35,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 10,
         backgroundColor: '#858363',
-        borderBottomLeftRadius: 15,
-        borderBottomRightRadius: 15
     },
     texto: {
         fontSize: 32,
         fontWeight: 'bold',
-        color: 'black'
+        color: 'black',
+        fontFamily: 'ChangaOne_400Regular'
     },
     botao: {
         marginRight: 20

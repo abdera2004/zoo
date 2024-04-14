@@ -5,6 +5,10 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useState} from 'react';
 import Loading from '../components/Loading';
+import {
+  useFonts,
+  ChangaOne_400Regular,
+} from '@expo-google-fonts/changa-one';
 
 export default function Login({navigation}) {
 
@@ -46,6 +50,10 @@ export default function Login({navigation}) {
       }, 3000)
   }
 
+  useFonts({
+    ChangaOne_400Regular,
+  });
+
   return (
     <View style={styles.container}>
 
@@ -72,14 +80,14 @@ export default function Login({navigation}) {
               <View style={styles.section}>
                 <AntDesign resizeMode="stretch" name="google" size={25} color="#8A501E" style={styles.icone}/>
                 <Pressable style={styles.inputBotao}>
-                  <Text style={{fontWeight: 'bold'}}>ENTRAR COM O GOOGLE</Text>
+                  <Text style={{fontWeight: 'bold', fontFamily: 'ChangaOne_400Regular'}}>ENTRAR COM O GOOGLE</Text>
                 </Pressable>
               </View> 
 
               <View style={styles.section}>
                 <FontAwesome5 resizeMode="stretch" name="phone" size={25} color="#8A501E" style={styles.icone}/>
                 <Pressable style={styles.inputBotao}>
-                  <Text style={{fontWeight: 'bold'}}>ENTRAR COM O NÚMERO DE TELEFONE</Text>
+                  <Text style={{fontWeight: 'bold', fontFamily: 'ChangaOne_400Regular'}}>ENTRAR COM O NÚMERO DE TELEFONE</Text>
                 </Pressable>
               </View>              
 
@@ -138,6 +146,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     borderBottomWidth: 2,
+    fontFamily: 'ChangaOne_400Regular'
   },
   section: {
     flexDirection: 'row',
@@ -155,6 +164,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: '100%',
     color: '#8A501E',
+    fontFamily: 'ChangaOne_400Regular'
   },
   inputBotao: {
     fontSize: 20,
@@ -162,7 +172,7 @@ const styles = StyleSheet.create({
     color: '#8A501E',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'absolute'
+    position: 'absolute',
   },
   botoes: {
     flex: 1,

@@ -2,6 +2,10 @@ import { StyleSheet, Text, View, ImageBackground, FlatList, Pressable } from 're
 import * as Animado from 'react-native-animatable';
 import Navegacao from '../../src/components/Navegacao';
 import Cabecalho from '../components/Cabecalho';
+import {
+  useFonts,
+  ChangaOne_400Regular,
+} from '@expo-google-fonts/changa-one';
 
 export default function Home({navigation}) {
 
@@ -38,6 +42,10 @@ export default function Home({navigation}) {
         },
       ];
 
+      useFonts({
+        ChangaOne_400Regular,
+      });
+
     return(  
         <View style={styles.container}>
           <Cabecalho titulo={'Home'} navegarPara={'Login'}/>
@@ -68,8 +76,8 @@ const styles = StyleSheet.create({
     texto: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: '#f8cd23',
-        fontFamily: ''
+        color: 'white',
+        fontFamily: 'ChangaOne_400Regular'
     },
     fundo: {
         width: '100%',
