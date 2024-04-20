@@ -8,6 +8,7 @@ import {
   useFonts,
   ChangaOne_400Regular,
 } from '@expo-google-fonts/changa-one';
+import Axios from 'axios';
 
 export default function Perfil() {
 
@@ -63,12 +64,26 @@ const recuperarIdade = async() =>
     }
 }
 
+const recuperarID = async() =>
+  {
+    try {
+        const valor = await AsyncStorage.getItem('id');
+        if (valor !== null) {
+          setId(valor);
+        }
+    } catch (error) {
+        console.error('Erro:', error);
+        return false;
+    }
+}
+
   //Executar funções assim que a página for carregada
    useEffect(() => {
     recuperarNome();
     recuperarEmail();
     recuperarIdade();
     recuperarSenha();
+    recuperarID();
     console.log('Recuperando dados');
    }, []);
 
@@ -78,21 +93,47 @@ const recuperarIdade = async() =>
   const [idade, setIdade] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [id, setId] = useState('');
 
-  const atualizarDados = async () => {
-    try {
-      // Salvar os dados do usuário no AsyncStorage
-      await AsyncStorage.setItem('nome', nome);
-      await AsyncStorage.setItem('idade', idade);
-      await AsyncStorage.setItem('email', email);
-      await AsyncStorage.setItem('senha', senha);
+  const Carregar = async () => {
+    const dadosUser = {
+      'nomeUser': nome,
+      'emailUser': email,
+      'senhaUser': senha,
+      'idadeUser': idade,
+      'idUser': id
+    };
+    console.log(dadosUser)
 
-      console.log('Perfil do usuário atualizado com sucesso!');
-      Alert.alert('Dados atualizados com sucesso!');
-    } catch (error) {
-      console.error('Erro ao atualizar perfil do usuário:', error);
+  const axiosConfig = {
+    headers: {
+/*         'Accept': 'application/json',
+*/         'Content-Type': 'application/x-www-form-urlencoded'
     }
   };
+
+  try {
+    const response = await Axios.post('http://localhost/bdzookids/userUpdate', dadosUser, axiosConfig );
+    console.log(response.data)
+
+    AsyncStorage.setItem('nome', response.data.nomeUser)
+    AsyncStorage.setItem('idade', response.data.idadeUser)
+    AsyncStorage.setItem('email', response.data.emailUser)
+    AsyncStorage.setItem('senha', response.data.senhaUser)
+    
+    .then(() => {
+      console.log('Dados atualizados com sucesso!'); 
+      }) 
+      .catch(error => { 
+      console.error('Erro ao armazenar dados:', error); 
+      });
+
+
+  } catch (error) {
+    console.error('Erro ao criar o usuário', error );
+    return false;
+  }
+  }
 
   useFonts({
     ChangaOne_400Regular,
@@ -150,20 +191,20 @@ const recuperarIdade = async() =>
             <View style={styles.formularioModal}>
 
               <Text style={styles.texto}>Nome</Text>
-              <TextInput style={styles.inputModal} placeholder='Nome' value={nome} onChangeText={(text) => setNome(text)}/>
+              <TextInput style={styles.inputModal} placeholder='Nome' id='nome' value={nome} onChangeText={setNome}/>
 
               <Text style={styles.texto}>Idade</Text>
-              <TextInput style={styles.inputModal} placeholder='Idade' value={idade} onChangeText={(text) => setIdade(text)} keyboardType='numeric'/>
+              <TextInput style={styles.inputModal} placeholder='Idade' id='idade' value={idade} onChangeText={setIdade} keyboardType='numeric'/>
 
               <Text style={styles.texto}>E-mail</Text>
-              <TextInput style={styles.inputModal} placeholder='Email' value={email} onChangeText={(text) => setEmail(text)}/>
+              <TextInput style={styles.inputModal} placeholder='Email' id='email' value={email} onChangeText={setEmail}/>
 
               <Text style={styles.texto}>Senha</Text>
-              <TextInput style={styles.inputModal} placeholder='Senha' value={senha} onChangeText={(text) => setSenha(text)}/>
+              <TextInput style={styles.inputModal} placeholder='Senha' id='senha' value={senha} onChangeText={setSenha}/>
             </View>
 
             <View style={styles.alinhamentoBotaoModal}>
-              <Pressable style={[styles.botaoModal, {backgroundColor: '#054406'}]} onPress={atualizarDados}>
+              <Pressable style={[styles.botaoModal, {backgroundColor: '#054406'}]} onPress={Carregar}>
                 <Text style={{fontWeight: 'bold', color: 'white', fontFamily: 'ChangaOne_400Regular'}}>SALVAR</Text>
               </Pressable>
 

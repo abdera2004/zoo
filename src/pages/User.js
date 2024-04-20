@@ -28,25 +28,11 @@ export default function User({navigation}) {
      } else{
        Carregar();
        console.log('Carregar executada');
-       armazenarLocalmente();
        console.log('Navegação executada');
        Aparecer();
      }
 
    };
-
-   const armazenarLocalmente = async() =>{
-     AsyncStorage.setItem('nome', nome)
-     AsyncStorage.setItem('idade', idade)
-     AsyncStorage.setItem('email', email)
-     AsyncStorage.setItem('senha', senha)
-     .then(() => {
-       console.log('Dados armazenados com sucesso!'); 
-       }) 
-       .catch(error => { 
-       console.error('Erro ao armazenar dados:', error); 
-       });
-   }
 
    const [nome, setNome] = useState('')
    const [idade, setIdade] = useState('')
@@ -71,6 +57,21 @@ export default function User({navigation}) {
    try {
      const response = await Axios.post('http://localhost/bdzookids/userInsert', dadosUser, axiosConfig );
      console.log(response.data)
+
+     AsyncStorage.setItem('nome', response.data.nomeUser)
+     AsyncStorage.setItem('idade', response.data.idadeUser)
+     AsyncStorage.setItem('email', response.data.emailUser)
+     AsyncStorage.setItem('senha', response.data.senhaUser)
+     AsyncStorage.setItem('id', response.data.id)
+     
+     .then(() => {
+       console.log('Dados armazenados com sucesso!'); 
+       }) 
+       .catch(error => { 
+       console.error('Erro ao armazenar dados:', error); 
+       });
+
+
    } catch (error) {
      console.error('Erro ao criar o usuário', error );
      return false;
