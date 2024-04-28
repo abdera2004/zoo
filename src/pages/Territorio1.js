@@ -85,9 +85,9 @@ export default function Territorio1() {
                                     
                                     <View style={{width: '100%', flex: 1.6}}>
                                         <Text style={styles.titulo}>{selectedAnimal.title}</Text>
-                                        <Text style={styles.textoModal}>Habitat: {selectedAnimal.habitat}</Text>
-                                        <Text style={styles.textoModal}>Expectativa de vida: {selectedAnimal.vida}</Text>
-                                        <Text style={styles.textoModal}>Alimentação: {selectedAnimal.comida}</Text>
+                                        <Text style={styles.textoModal}><Text style={{color: 'red'}}>Habitat: </Text> {selectedAnimal.habitat}</Text>
+                                        <Text style={styles.textoModal}><Text style={{color: 'red'}}>Expectativa de vida: </Text> {selectedAnimal.vida}</Text>
+                                        <Text style={styles.textoModal}><Text style={{color: 'red'}}>Alimentação: </Text>{selectedAnimal.comida}</Text>
                                     </View>
 
                                     <View style={styles.alinhamentoBotao}>
@@ -134,7 +134,6 @@ const styles = StyleSheet.create({
     },
     texto: {
         fontSize: 30,
-        fontWeight: 'bold',
         color: '#f8cd23',
         fontFamily: 'ChangaOne_400Regular'
     },
@@ -168,7 +167,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue'
     },
     titulo: {
-        fontWeight: 'bold',
         fontSize: 24,
         color: 'black',
         bottom: 12,

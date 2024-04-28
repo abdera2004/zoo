@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     },
     texto: {
         fontSize: 32,
-        fontWeight: 'bold',
         color: 'black',
         fontFamily: 'ChangaOne_400Regular'
     },

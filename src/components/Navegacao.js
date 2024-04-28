@@ -1,6 +1,5 @@
 import {View, Image, StyleSheet, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Loading from '../components/Loading';
 
 export default function Navegacao() {
 
@@ -13,7 +12,8 @@ export default function Navegacao() {
             <Pressable onPress={() => navigation.navigate('Home')}>
                 <Image
                     source={require('../../assets/navbar/home.png')}
-                    style={{height: 48, width: 48}}
+                    resizeMode='contain'
+                    style={{height: 32, width: 32}}
                 />
             </Pressable>
 
@@ -28,7 +28,8 @@ export default function Navegacao() {
             <Pressable onPress={() => navigation.navigate('Perfil')}>
                 <Image
                     source={require('../../assets/navbar/user.png')}
-                    style={{height: 48, width: 48}}
+                    resizeMode='contain'
+                    style={{height: 32, width: 32}}
                 />
             </Pressable>
         </View>

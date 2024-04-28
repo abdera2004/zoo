@@ -80,14 +80,14 @@ export default function Login({navigation}) {
               <View style={styles.section}>
                 <AntDesign resizeMode="stretch" name="google" size={25} color="#8A501E" style={styles.icone}/>
                 <Pressable style={styles.inputBotao}>
-                  <Text style={{fontWeight: 'bold', fontFamily: 'ChangaOne_400Regular'}}>ENTRAR COM O GOOGLE</Text>
+                  <Text style={{fontFamily: 'ChangaOne_400Regular'}}>ENTRAR COM O GOOGLE</Text>
                 </Pressable>
               </View> 
 
               <View style={styles.section}>
                 <FontAwesome5 resizeMode="stretch" name="phone" size={25} color="#8A501E" style={styles.icone}/>
                 <Pressable style={styles.inputBotao}>
-                  <Text style={{fontWeight: 'bold', fontFamily: 'ChangaOne_400Regular'}}>ENTRAR COM O NÚMERO DE TELEFONE</Text>
+                  <Text style={{fontFamily: 'ChangaOne_400Regular'}}>ENTRAR COM O NÚMERO DE TELEFONE</Text>
                 </Pressable>
               </View>              
 
@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
   },
   textoTitulo: {
     fontSize: 30,
-    fontWeight: 'bold',
     borderBottomWidth: 2,
     fontFamily: 'ChangaOne_400Regular'
   },

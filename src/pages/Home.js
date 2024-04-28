@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
     },
     texto: {
         fontSize: 30,
-        fontWeight: 'bold',
         color: 'white',
         fontFamily: 'ChangaOne_400Regular'
     },

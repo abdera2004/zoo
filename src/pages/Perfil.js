@@ -205,11 +205,11 @@ const recuperarID = async() =>
 
             <View style={styles.alinhamentoBotaoModal}>
               <Pressable style={[styles.botaoModal, {backgroundColor: '#054406'}]} onPress={Carregar}>
-                <Text style={{fontWeight: 'bold', color: 'white', fontFamily: 'ChangaOne_400Regular'}}>SALVAR</Text>
+                <Text style={{color: 'white', fontFamily: 'ChangaOne_400Regular'}}>SALVAR</Text>
               </Pressable>
 
               <Pressable style={[styles.botaoModal, {backgroundColor: 'red'}]} onPress={() => setModalVisible(false)}>
-                <Text style={{fontWeight: 'bold', color: 'white', fontFamily: 'ChangaOne_400Regular'}}>FECHAR</Text>
+                <Text style={{color: 'white', fontFamily: 'ChangaOne_400Regular'}}>FECHAR</Text>
               </Pressable>
             </View>
           </View>
@@ -239,10 +239,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    paddingHorizontal: 5
   },
   formulario: {
     flex: 0.7,
@@ -265,7 +264,6 @@ const styles = StyleSheet.create({
   },
   texto: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: 'black',
     fontFamily: 'ChangaOne_400Regular'
   },
@@ -307,7 +305,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 200,
     textAlign: 'center',
-    height: 200,
     marginBottom: 5,
     fontFamily: 'ChangaOne_400Regular'
   },
@@ -323,6 +320,7 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10
   },
   alinhamentoBotaoModal: {
     width: '100%',

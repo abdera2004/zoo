@@ -84,9 +84,9 @@ export default function User({navigation}) {
        setMostrar(true)
        setTimeout(() => {
            setMostrar(false)
-           navigation.navigate('Login')
+           navigation.navigate('Home')
        }, 3000)
-   }
+   };
 
   useFonts({
     ChangaOne_400Regular,
@@ -132,10 +132,13 @@ export default function User({navigation}) {
                 <TextInput style={styles.input} onChangeText={setSenha} value={senha} id='senha' autoComplete='password' textContentType='password' placeholder='Digite sua senha...' />
               </View>
               
+              <View style={[styles.section, {justifyContent: 'center'}]}>
                 <Pressable onPress={() => navigation.navigate('Login')}>
                   <Text style={styles.texto}>Já possui uma conta? Faça login</Text>
                 </Pressable>
+              </View>
 
+              <View style={styles.sectionBotao}> 
                 <Pressable onPress={onPressButton}>
                   <Image
                     source={require('../../assets/botoes/botao cadastrar.png')}
@@ -143,6 +146,7 @@ export default function User({navigation}) {
                     resizeMode='contain'
                   />
                 </Pressable>
+              </View>
 
             </View>
           </ImageBackground>
@@ -180,7 +184,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   imagem: {
     flex: 0.5,
@@ -191,10 +195,14 @@ const styles = StyleSheet.create({
   section: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 10,
+    margin: 20,
     borderRadius: 50,
     backgroundColor: 'white',
     width: '90%'
+  },
+  sectionBotao: {
+    alignItems: 'center',
+    margin: 10,
   },
   icone: {
     padding: 10,
@@ -204,7 +212,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: '100%',
     color: '#8A501E',
-    fontFamily: 'ChangaOne_400Regular'
+    fontFamily: 'ChangaOne_400Regular',
   },
   botoes: {
     flex: 1,
@@ -219,7 +227,6 @@ const styles = StyleSheet.create({
   },
   textoTitulo: {
     fontSize: 30,
-    fontWeight: 'bold',
     borderBottomWidth: 2,
     fontFamily: 'ChangaOne_400Regular'
   },
@@ -228,8 +235,6 @@ const styles = StyleSheet.create({
     width: 200,
   },
   texto: {
-    fontWeight: 'bold',
-    margin: 5,
     fontFamily: 'ChangaOne_400Regular'
   }
 });
