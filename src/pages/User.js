@@ -73,7 +73,7 @@ export default function User({navigation}) {
 
 
    } catch (error) {
-     console.error('Erro ao criar o usuário', error );
+     console.error('Erro ao criar o usuário', error);
      return false;
    }
    }
@@ -84,7 +84,7 @@ export default function User({navigation}) {
        setMostrar(true)
        setTimeout(() => {
            setMostrar(false)
-           navigation.navigate('Home')
+           navigation.navigate('Login')
        }, 3000)
    };
 

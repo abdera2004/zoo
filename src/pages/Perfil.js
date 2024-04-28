@@ -224,7 +224,7 @@ const recuperarID = async() =>
           </ImageBackground>
         </Animado.View>
 
-        <Pressable style={styles.botaoDeletar} onPress={Deletar}>
+        <Pressable style={styles.botaoDeletar} onPress={AparecerMensagem}>
           <Text style={styles.textoBotaoDeletar}>DELETAR PERFIL</Text>
         </Pressable>
 
