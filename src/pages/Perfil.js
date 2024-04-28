@@ -10,7 +10,7 @@ import {
 } from '@expo-google-fonts/changa-one';
 import Axios from 'axios';
 
-export default function Perfil() {
+export default function Perfil({navigation}) {
 
      const recuperarNome = async() =>
      {
@@ -111,7 +111,6 @@ const recuperarID = async() =>
 */         'Content-Type': 'application/x-www-form-urlencoded'
     }
   };
-
   try {
     const response = await Axios.post('http://localhost/bdzookids/userUpdate', dadosUser, axiosConfig );
     console.log(response.data)
@@ -135,9 +134,53 @@ const recuperarID = async() =>
   }
   }
 
+  const Deletar = async () => {
+    const dadosUser = {
+      'idUser': id
+    };
+
+    const axiosConfig = {
+      headers: {
+  /*         'Accept': 'application/json',
+  */         'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    };
+    try {
+      const response = await Axios.post('http://localhost/bdzookids/userDestroy', dadosUser, axiosConfig );
+      console.log(response.data)
+  
+      AsyncStorage.setItem('nome', response.data.nomeUser)
+      AsyncStorage.setItem('idade', response.data.idadeUser)
+      AsyncStorage.setItem('email', response.data.emailUser)
+      AsyncStorage.setItem('senha', response.data.senhaUser)
+      AsyncStorage.setItem('id', response.data.idUser)
+      
+      .then(() => {
+        console.log('Usuário deletado com sucesso!');
+        navigation.navigate('User')
+        }) 
+        .catch(error => { 
+        console.error('Erro ao deletar usuário:', error); 
+        });
+  
+  
+    } catch (error) {
+      console.error('Erro ao criar o usuário', error );
+      return false;
+    }
+  }
+
   useFonts({
     ChangaOne_400Regular,
   });
+
+  const AparecerMensagem = () => {
+
+    Alert.alert('Atenção!', 'Esta ação é irreversível, deseja realmente apagar o seu perfil?', [
+      {text: 'Cancelar'},
+      {text: 'Sim', onPress: () => Deletar}
+    ]);
+  }
 
   return (
       
@@ -180,6 +223,10 @@ const recuperarID = async() =>
           </View>
           </ImageBackground>
         </Animado.View>
+
+        <Pressable style={styles.botaoDeletar} onPress={Deletar}>
+          <Text style={styles.textoBotaoDeletar}>DELETAR PERFIL</Text>
+        </Pressable>
 
       </ImageBackground>
 
@@ -251,7 +298,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent:'space-evenly',
     borderRadius: 10,
-    borderWidth: 1
+    borderWidth: 1,
+    marginBottom: 10
   },
   input: {
     borderWidth: 1,
@@ -328,4 +376,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     flex: 0.25
   },
+  botaoDeletar: {
+    borderRadius: 50,
+    backgroundColor: 'red',
+    width: '80%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '5%',
+    borderWidth: 1
+  },
+  textoBotaoDeletar: {
+    fontFamily: 'ChangaOne_400Regular'
+  }
 })
