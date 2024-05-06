@@ -17,7 +17,7 @@ const SplashScreen = ({ navigation }) => {
         )
       ).start();
       setTimeout(() => {
-        navigation.navigate('User'); // Navegar para a próxima tela após o tempo desejado
+        navigation.navigate('Cadastro'); // Navegar para a próxima tela após o tempo desejado
       }, 2000); // Tempo de exibição da tela de splash
     }, []);
   

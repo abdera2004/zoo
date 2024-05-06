@@ -1,7 +1,7 @@
 import {View, Image, StyleSheet, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-export default function Navegacao() {
+export  default function Navegacao() {
 
     const navigation = useNavigation();
 

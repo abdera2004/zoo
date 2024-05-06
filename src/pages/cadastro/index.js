@@ -6,13 +6,13 @@ import * as Animado from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useState} from 'react';
 import Axios from 'axios';
-import Loading from '../components/Loading';
+import Loading from '../../components/Loading';
 import {
   useFonts,
   ChangaOne_400Regular,
 } from '@expo-google-fonts/changa-one';
 
-export default function User({navigation}) {
+export default function Cadastro({navigation}) {
 
   //Constante feita para executar várias funções ao mesmo tempo.
    const onPressButton = () => {
@@ -95,17 +95,17 @@ export default function User({navigation}) {
   return (
     <View style={styles.container}>
 
-      <ImageBackground source={require('../../assets/fundo/fundo-cadastro.png')} style={styles.fundo}>
+      <ImageBackground source={require('../../../assets/fundo/fundo-cadastro.png')} style={styles.fundo}>
 
         <Animado.View animation="fadeInDown" duration={2000} delay={500} style={styles.imagem}>
           <Image
-          source={require('../../assets/logo zoo kids fundo transparente.png')}
+          source={require('../../../assets/logo zoo kids fundo transparente.png')}
           resizeMode='contain' style={{flex: 0.8}}
           />
         </Animado.View>
 
         <Animado.View animation="fadeInUp" duration={2500} delay={500} style={styles.cadastro}>
-          <ImageBackground source={require('../../assets/fundo/fundo cadastro.png')} style={styles.fundoCadastro}>
+          <ImageBackground source={require('../../../assets/fundo/fundo cadastro.png')} style={styles.fundoCadastro}>
 
             <View style={styles.titulo}>
               <Text style={styles.textoTitulo}>CADASTRO</Text>
@@ -141,7 +141,7 @@ export default function User({navigation}) {
               <View style={styles.sectionBotao}> 
                 <Pressable onPress={onPressButton}>
                   <Image
-                    source={require('../../assets/botoes/botao cadastrar.png')}
+                    source={require('../../../assets/botoes/botao cadastrar.png')}
                     style={styles.botao}
                     resizeMode='contain'
                   />
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cadastro:{
-    flex: 0.75,
+    flex: 2,
     width: '100%',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,

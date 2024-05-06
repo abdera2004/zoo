@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, ImageBackground, FlatList, Pressable } from 'react-native';
 import * as Animado from 'react-native-animatable';
-import Navegacao from '../../src/components/Navegacao';
-import Cabecalho from '../components/Cabecalho';
+import Navegacao from '../../../src/components/Navegacao';
+import Cabecalho from '../../../src/components/Cabecalho';
 import {
   useFonts,
   ChangaOne_400Regular,
@@ -13,32 +13,32 @@ export default function Home({navigation}) {
         {
             id: '1',
             title: 'Território 1',
-            imagem: require('../../assets/fundo/fundo 1 flatlist.png'),
+            imagem: require('../../../assets/fundo/fundo 1 flatlist.png'),
         },
         {
             id: '2',
             title: 'Território 2',
-            imagem: require('../../assets/fundo/fundo flatlist 2.png'),
+            imagem: require('../../../assets/fundo/fundo flatlist 2.png'),
         },
         {
             id: '3',
             title: 'Território 3',
-            imagem: require('../../assets/fundo/fundo flatlist 3.png'),
+            imagem: require('../../../assets/fundo/fundo flatlist 3.png'),
         },
         {
             id: '4',
             title: 'Território 4',
-            imagem: require('../../assets/fundo/fundo flatlisst 4.png'),
+            imagem: require('../../../assets/fundo/fundo flatlisst 4.png'),
         },
         {
             id: '5',
             title: 'Território 5',
-            imagem: require('../../assets/fundo/fundo flatlist 5.png'),
+            imagem: require('../../../assets/fundo/fundo flatlist 5.png'),
         },
         {
             id: '6',
             title: 'Território 6',
-            imagem: require('../../assets/fundo/fundo flatlist 6.png'),
+            imagem: require('../../../assets/fundo/fundo flatlist 6.png'),
         },
       ];
 
@@ -48,8 +48,8 @@ export default function Home({navigation}) {
 
     return(  
         <View style={styles.container}>
-          <Cabecalho titulo={'Home'} navegarPara={'Login'}/>
-            <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
+          <Cabecalho titulo='Home' navegarPara='Login'/>
+            <ImageBackground source={require('../../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
               <FlatList
                 style={{flex: 1}}
                 data={Territorios}
@@ -58,7 +58,7 @@ export default function Home({navigation}) {
               />
             </ImageBackground>
           <Navegacao/>
-        </View>
+        </View> 
     );
 }
 

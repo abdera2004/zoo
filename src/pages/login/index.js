@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useState} from 'react';
-import Loading from '../components/Loading';
+import Loading from '../../components/Loading';
 import {
   useFonts,
   ChangaOne_400Regular,
@@ -57,9 +57,9 @@ export default function Login({navigation}) {
   return (
     <View style={styles.container}>
 
-      <ImageBackground source={require('../../assets/fundo/fundo-cadastro.png')} style={styles.fundo}>
+      <ImageBackground source={require('../../../assets/fundo/fundo-cadastro.png')} style={styles.fundo}>
         <Animado.View animation="fadeInDown" duration={2500} style={styles.cadastro}>
-          <ImageBackground source={require('../../assets/fundo/fundo cadastro.png')} style={styles.fundoLogin}>
+          <ImageBackground source={require('../../../assets/fundo/fundo cadastro.png')} style={styles.fundoLogin}>
 
             <View style={styles.titulo}>
               <Text style={styles.textoTitulo}>LOGIN</Text>
@@ -93,7 +93,7 @@ export default function Login({navigation}) {
 
               <Pressable onPress={Login}>
                 <Image
-                   source={require('../../assets/botoes/botao logar transparente.png')}
+                   source={require('../../../assets/botoes/botao logar transparente.png')}
                    style={styles.botao}
                   resizeMode='contain'
                 />

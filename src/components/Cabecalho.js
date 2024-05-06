@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     },
     texto: {
         fontSize: 32,
-        color: 'black',
         fontFamily: 'ChangaOne_400Regular'
     },
     botao: {

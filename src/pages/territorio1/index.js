@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, Modal, ImageBackground, FlatList, Pressable, Image } from 'react-native';
-import Navegacao from '../components/Navegacao';
-import Cabecalho from '../components/Cabecalho';
+import Navegacao from '../../components/Navegacao';
+import Cabecalho from '../../components/Cabecalho';
 import { useState } from 'react';
 import * as Animado from 'react-native-animatable';
 import {
@@ -14,7 +14,7 @@ export default function Territorio1() {
         {
             id: '1',
             title: 'Onça Pintada',
-            imagem: require('../../assets/animais/onça pintada.png'),
+            imagem: require('../../../assets/animais/onça pintada.png'),
             habitat: 'Floresta amazônica, mata atlântica, cerrado',
             vida: 'Entre 12 e 15 anos',
             comida: 'Carnívora, alimenta-se tipicamente de animais silvestres'
@@ -22,7 +22,7 @@ export default function Territorio1() {
         {
             id: '2',
             title: 'Onça Parda',
-            imagem: require('../../assets/animais/onça parda.png'),
+            imagem: require('../../../assets/animais/onça parda.png'),
             habitat: 'Caatinga',
             vida: 'Entre 8 e 13 anos',
             comida: 'Carnívora, alimenta-se tipicamente de animais silvestres, como veados e invertebrados'
@@ -30,7 +30,7 @@ export default function Territorio1() {
         {
             id: '3',
             title: 'Jacaré',
-            imagem: require('../../assets/animais/jacaré.png'),
+            imagem: require('../../../assets/animais/jacaré.png'),
             habitat: 'Pântanos',
             vida: 'Entre 30 e 75 anos',
             comida: 'Peixes, aves e mamíferos'
@@ -38,7 +38,7 @@ export default function Territorio1() {
         {
             id: '4',
             title: 'Elefante',
-            imagem: require('../../assets/animais/elefante.png'),
+            imagem: require('../../../assets/animais/elefante.png'),
             habitat: 'Savanas, florestas, desertos e pântanos',
             vida: 'Entre 48 e 70 anos',
             comida: 'Herbívoro, come frutas, casca de árvores e grãos'
@@ -46,7 +46,7 @@ export default function Territorio1() {
         {
             id: '5',
             title: 'Lobo-guará',
-            imagem: require('../../assets/animais/lobo-guara.png'),
+            imagem: require('../../../assets/animais/lobo-guara.png'),
             habitat: 'Cerrado',
             vida: '15 anos',
             comida: 'Onívoro, alimenta-se tanto de animais quanto vegetais.'
@@ -63,8 +63,8 @@ export default function Territorio1() {
 
   return (
         <View style={styles.container}>
-            <Cabecalho titulo={'Território 1'} navegarPara={'Home'}/>
-            <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
+            <Cabecalho titulo='Território 1' navegarPara='Home'/>
+            <ImageBackground source={require('../../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
                 <FlatList
                     data={Animais}
                     keyExtractor={item=>item.id}
@@ -76,7 +76,7 @@ export default function Territorio1() {
             <Modal transparent={true} visible={modalVisible}>
                 <Animado.View animation="fadeInLeft" style={styles.fundoModal}>
                     <View style={styles.conteudoModal}>
-                        <ImageBackground source={require('../../assets/fundo/fundo modal.png')} style={styles.fundoModalConteudo}>
+                        <ImageBackground source={require('../../../assets/fundo/fundo modal.png')} style={styles.fundoModalConteudo}>
                                 {selectedAnimal && (
                                 <View style={{flex: 1, width: '100%', justifyContent: 'space-between'}}>
                                     <View style={{width: '100%', flex: 1}}>
@@ -93,7 +93,7 @@ export default function Territorio1() {
                                     <View style={styles.alinhamentoBotao}>
                                         <Pressable style={{height: 60, width: 60}} title="Fechar" onPress={() => setModalVisible(false)}>
                                             <Image
-                                            source={require('../../assets/botoes/excluir.png')}
+                                            source={require('../../../assets/botoes/excluir.png')}
                                             style={{width: 52, height: 52}}
                                             />
                                         </Pressable>

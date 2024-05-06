@@ -1,6 +1,6 @@
 import { View, Text, Pressable, Image, StyleSheet, TextInput, ImageBackground, Modal, Alert } from 'react-native';
-import Cabecalho from '../components/Cabecalho';
-import Navegacao from '../components/Navegacao';
+import Cabecalho from '../../components/Cabecalho';
+import Navegacao from '../../components/Navegacao';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
 import * as Animado from 'react-native-animatable';
@@ -178,27 +178,27 @@ const recuperarID = async() =>
 
     Alert.alert('Atenção!', 'Esta ação é irreversível, deseja realmente apagar o seu perfil?', [
       {text: 'Cancelar'},
-      {text: 'Sim', onPress: () => Deletar}
+      {text: 'Sim', onPress: () => [Deletar, navigation.navigate('Login')]}
     ]);
   }
 
   return (
       
     <View style={styles.container}>
-      <Cabecalho titulo={"Perfil"} navegarPara={'Home'}/>
-      <ImageBackground source={require('../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
+      <Cabecalho titulo='Perfil' navegarPara='Home'/>
+      <ImageBackground source={require('../../../assets/fundo-organico-de-selva-plana.jpg')} style={styles.fundo}>
         
         <Animado.View animation="flipInX" style={styles.fotoPerfil}>
-          <Image source={require('../../assets/usuario.png')} style={styles.foto}/>
+          <Image source={require('../../../assets/usuario.png')} style={styles.foto}/>
         </Animado.View>
 
         <Animado.View animation="flipInX" delay={500} duration={1000} style={styles.formulario}>
 
-          <ImageBackground source={require('../../assets/fundo/fundo modal.png')} style={styles.fundoFormulario}>
+          <ImageBackground source={require('../../../assets/fundo/fundo modal.png')} style={styles.fundoFormulario}>
 
           <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', flex: 0.5}}>
             <Image
-              source={require('../../assets/botoes/botao-info.png')}
+              source={require('../../../assets/botoes/botao-info.png')}
               style={{height: 100, width: 200,}}
             />
           </View>
@@ -216,7 +216,7 @@ const recuperarID = async() =>
           <View style={styles.alinhamentoBotao}>
             <Pressable onPress={() => setModalVisible(true)}>
               <Image
-                source={require('../../assets/botoes/editar.png')}
+                source={require('../../../assets/botoes/editar.png')}
                 style={{width: 52, height: 52}}
               />
             </Pressable>            
